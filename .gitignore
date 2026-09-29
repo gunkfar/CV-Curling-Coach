@@ -1,1 +1,5 @@
 curling_samples/
+.env
+__pycache__/
+*.pyc
+downloaded_images/

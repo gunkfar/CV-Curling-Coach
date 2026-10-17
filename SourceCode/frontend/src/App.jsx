@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Landing from './pages/Landing';
 
 function App() {
   const [message, setMessage] = useState('Connecting...');
@@ -11,10 +12,11 @@ function App() {
   }, []);
 
   return (
-    <main>
-      <h1>CV Curling Coach</h1>
-      <p>{message}</p>
-    </main>
+    <Landing />
+    // <main>
+    //   <h1>CV Curling Coach</h1>
+    //   <p>{message}</p>
+    // </main>
   );
 }
 

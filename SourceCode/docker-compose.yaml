@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:18
+    env_file: .env
+    volumes:
+      - curling-coach:/var/lib/postgresql
+      - ./database/init_data:/docker-entrypoint-initdb.d
+
+  backend:
+    image: node:lts
+    working_dir: /app
+    env_file: .env
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - backend_modules:/app/node_modules
+    command: sh -c "npm install && npm run dev"
+
+  frontend:
+    image: node:lts
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - frontend_modules:/app/node_modules
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+
+volumes:
+  curling-coach:
+  backend_modules:
+  frontend_modules:

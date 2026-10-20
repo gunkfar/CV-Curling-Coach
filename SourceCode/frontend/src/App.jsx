@@ -13,10 +13,7 @@ function App() {
 
   return (
     <Landing />
-    // <main>
-    //   <h1>CV Curling Coach</h1>
-    //   <p>{message}</p>
-    // </main>
+
   );
 }
 

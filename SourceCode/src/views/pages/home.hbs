@@ -1,28 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <link rel="stylesheet" href="../resources/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Rock Creek Curling</title>
+  <link rel="stylesheet" href="../resources/css/style.css">
+
 </head>
 
+<body>
 <div class="rcc">
   <div class="rcc-wrap">
-    <header class="rcc-top">
-      <img src="../resources/img/logo.png" alt="Rock Creek Curling">
 
-      <button class="rcc-btn sm" onclick="location.href='/login'">
-        Log in
-      </button>
+    <header class="rcc-top">
+      <a href="/">
+        <img src="../resources/img/logo.png" alt="Rock Creek Curling">
+      </a>
     </header>
 
-    <section class="rcc-hero">
-      <img src="/img/logo.png" alt="">
-      <h1>User Dashboard</h1>
-      <p>
-        SKO
-      </p>
-    </section>
+    <main>
+
+      <section class="rcc-sec">
+        <h1>Your saved games</h1>
+        <p class="rcc-sub">Welcome back.</p>
+
+        <button type="button" class="rcc-btn gold" id="open-calendar">
+          Search Dates
+        </button>
+      </section>
+
+      <section class="rcc-sec" id="recent-games">
+        <h2>Recent games</h2>
+        <p class="rcc-sub">No recent games yet.</p>
+      </section>
+
+      <section class="rcc-sec" id="saved-games">
+        <h2>Saved games</h2>
+        <p class="rcc-sub">You have no saved games yet.</p>
+      </section>
+
+    </main>
 
     <footer class="rcc-foot">
       <b>Rock Creek Curling</b>
       Lafayette, CO
     </footer>
+
+    <!-- Calendar Popup -->
+    <dialog id="calendar-popup" class="calendar-popup"
+            aria-labelledby="calendar-title">
+
+      <div class="calendar-head">
+        <button type="button" id="prev-month" aria-label="Previous month">
+          Prev
+        </button>
+
+        <h2 id="calendar-title"></h2>
+
+        <button type="button" id="next-month" aria-label="Next month">
+          Next
+        </button>
+      </div>
+
+      <table class="calendar">
+        <thead>
+          <tr>
+            <th>S</th><th>M</th><th>T</th><th>W</th>
+            <th>T</th><th>F</th><th>S</th>
+          </tr>
+        </thead>
+        <tbody id="calendar-days"></tbody>
+      </table>
+
+      <div class="stack">
+        <button type="button" class="rcc-btn gold"
+                id="view-games" disabled>
+          View Games
+        </button>
+
+        <button type="button" class="rcc-btn" id="close-calendar">
+          Close
+        </button>
+      </div>
+
+    </dialog>
+
   </div>
 </div>
+
+<script>
+  const popup = document.getElementById("calendar-popup");
+  const calendarTitle = document.getElementById("calendar-title");
+  const calendarDays = document.getElementById("calendar-days");
+  const viewGames = document.getElementById("view-games");
+
+  let displayedDate = new Date();
+  let selectedDate = null;
+
+  // Build the calendar
+  function renderCalendar() {
+    const year = displayedDate.getFullYear();
+    const month = displayedDate.getMonth();
+
+    calendarTitle.textContent = displayedDate.toLocaleString("en-US", {
+      month: "long",
+      year: "numeric"
+    });
+
+    calendarDays.innerHTML = "";
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    let day = 1;
+
+    for (let week = 0; week < 6 && day <= daysInMonth; week++) {
+      const row = document.createElement("tr");
+
+      for (let weekday = 0; weekday < 7; weekday++) {
+        const cell = document.createElement("td");
+
+        if ((week > 0 || weekday >= firstDay) && day <= daysInMonth) {
+
+          // Format date as YYYY-MM-DD
+          const date =
+            `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+          // Create clickable date button
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = day;
+          button.className = "calendar-day";
+
+          // Highlight selected date
+          if (selectedDate === date) {
+            button.classList.add("selected");
+            button.setAttribute("aria-pressed", "true");
+          } else {
+            button.setAttribute("aria-pressed", "false");
+          }
+
+          // Select date when clicked
+          button.addEventListener("click", function() {
+            selectedDate = date;
+            viewGames.disabled = false;
+            renderCalendar();
+          });
+
+          cell.appendChild(button);
+          day++;
+        }
+
+        row.appendChild(cell);
+      }
+
+      calendarDays.appendChild(row);
+    }
+  }
+
+  // Open calendar
+  document.getElementById("open-calendar").addEventListener("click", function() {
+    renderCalendar();
+    popup.showModal();
+  });
+
+  // Close calendar
+  document.getElementById("close-calendar").addEventListener("click", function() {
+    popup.close();
+  });
+
+  // Previous month
+  document.getElementById("prev-month").addEventListener("click", function() {
+    displayedDate.setDate(1);
+    displayedDate.setMonth(displayedDate.getMonth() - 1);
+    renderCalendar();
+  });
+
+  // Next month
+  document.getElementById("next-month").addEventListener("click", function() {
+    displayedDate.setDate(1);
+    displayedDate.setMonth(displayedDate.getMonth() + 1);
+    renderCalendar();
+  });
+
+  // Go to GamesOnDate page
+  viewGames.addEventListener("click", function() {
+    if (selectedDate) {
+      window.location.href =
+        "/gamesOnDate?date=" + encodeURIComponent(selectedDate);
+    }
+  });
+</script>
+
+</body>
+</html>

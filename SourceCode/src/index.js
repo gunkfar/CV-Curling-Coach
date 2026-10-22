@@ -88,6 +88,10 @@ app.get('/home', (req, res) => {
   res.render('pages/home'); 
 });
 
+// Games on selected date
+app.get('/gamesOnDate', (req, res) => {
+  res.render('pages/gamesOnDate');
+});
 
 ///// login get and post /////
 app.get('/login', (req, res) => {

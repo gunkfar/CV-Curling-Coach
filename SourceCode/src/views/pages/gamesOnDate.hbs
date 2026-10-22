@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games on Date - Rock Creek Curling</title>
+  <link rel="stylesheet" href="../resources/css/style.css">
+</head>
+
+<body>
+  <div class="rcc">
+    <div class="rcc-wrap">
+
+      <header class="rcc-top">
+        <a href="/home">
+          <img src="../resources/img/logo.png" alt="Rock Creek Curling">
+        </a>
+      </header>
+
+      <main>
+        <section class="rcc-sec">
+          <h1>Games on Selected Date</h1>
+          <p class="rcc-sub" id="selected-date"></p>
+          <p class="rcc-sub">No games available yet.</p>
+        </section>
+      </main>
+
+      <footer class="rcc-foot">
+        <b>Rock Creek Curling</b>
+        Lafayette, CO
+      </footer>
+
+    </div>
+  </div>
+
+<!--Code to display the date the user selected -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const date = params.get("date");
+
+    if (date) {
+      document.getElementById("selected-date").textContent =
+        "Selected date: " + date;
+    }
+  </script>
+</body>
+</html>

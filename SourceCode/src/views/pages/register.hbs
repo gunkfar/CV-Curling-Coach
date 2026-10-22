@@ -1,0 +1,49 @@
+<head>
+   <link rel="stylesheet" href="../resources/css/style.css">
+</head>
+
+<div class="rcc">
+  <div class="rcc-wrap">
+    <header class="rcc-top">
+      <img src="../resources/img/logo.png" alt="Rock Creek Curling">
+    </header>
+
+    <div class="rcc-login">
+         <section class="rcc-login-card">
+            {{#if error}}
+            <p class="error-message">{{error}}</p>
+            {{/if}}
+            <h1>Create Account</h1>
+               <form action="/register" method="POST">
+                  <div class="rcc-field">
+                     <label for="first_name">First Name</label>
+                     <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required />
+                  </div>
+                  <div class="rcc-field">
+                     <label for="last_name">Last Name</label>
+                     <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required />
+                  </div>
+                  <div class="rcc-field">
+                     <label for="username">Username</label>
+                     <input type="text" id="username" name="username" placeholder="Enter your username" required />
+                  </div>
+                  <div class="rcc-field">
+                     <label for="password">Password</label>
+                     <input type="text" id="password" name="password" placeholder="Enter your password" required />
+                  </div>
+
+                  <button type="submit" class="rcc-btn sm rcc-login-submit">Register </button>
+               </form>
+         <p class="rcc-register">
+            Already have an account?
+            <a href="/login">Login</a>
+         </p>
+      </div>
+    </section>
+
+    <footer class="rcc-foot">
+      <b>Rock Creek Curling</b>
+      Lafayette, CO
+    </footer>
+  </div>
+</div>

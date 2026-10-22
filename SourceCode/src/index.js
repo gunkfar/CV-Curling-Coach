@@ -47,7 +47,6 @@ db.connect()
   });
 
 // <!-- Section 3 : App Settings -->
-// Register `hbs` as our view engine using its bound `engine()` function.
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -167,35 +166,44 @@ app.get('/register', (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-  const hash = await bcrypt.hash(req.body.password, 10);
+  try {
+    const { first_name, last_name, username, password } = req.body;
 
-  const duplicate = req.body.username;
-  const query2 = `SELECT * FROM users WHERE username = $1;`
-  db.oneOrNone(query2, [duplicate])
-  .then(data => {
-    if (!data) {
-      const query = `INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4) ON CONFLICT (username) DO NOTHING;`; 
-       db.none(query, [req.body.first_name, req.body.last_name, req.body.username, hash]).then(data => { 
-          res.redirect('/login');
-        })
-        .catch(err => {
-          res.status(400);
-          console.log('error somehow');
-          return res.render('pages/register');
+    const hash = await bcrypt.hash(password, 10);
+
+    const query = `INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4) ON CONFLICT (username) DO NOTHING RETURNING user_id, username, first_name, last_name;`;
+    const user = await db.oneOrNone(query, [first_name, last_name, username, hash]);
+
+    // username  exists
+    if (!user) {
+      return res.status(409).render('pages/register', {
+        error: 'That username is already taken.'
       });
-      return res.redirect('/login');
     }
-    return res.render('pages/register', {
-      message: 'Username already exists',
-      error: true
+
+    // login session
+    req.session.user = {
+      user_id: user.user_id,
+      username: user.username,
+      first_name: user.first_name,
+      last_name: user.last_name
+    };
+
+    // wait for the session to save before redirecting
+    req.session.save((err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Unable to start your session.');
+      }
+      res.redirect('/home');
     });
-   })
-  .catch(err => {
-    console.log('error here');
-    res.status(400);
-    console.log(err);
-    return res.render('pages/register');
-  });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).render('pages/register', {
+      error: 'Unable to create your account. Please try again.'
+    });
+  }
 });
 
 ///// Authentication Middleware /////

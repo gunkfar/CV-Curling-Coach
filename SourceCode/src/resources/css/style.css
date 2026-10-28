@@ -91,6 +91,27 @@
   color: #07683a;
 }
 
+.rcc-btn-end {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background-color: #b1a47d;
+    border: none;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    margin: 4px;
+}
+
+.rcc-btn-end.active {
+    background-color: #2c653e;
+    outline: 2px solid #b1a47d;
+    outline-offset: 2px;
+}
+
 /* Hero section */
 .rcc-hero {
   background: #07683a;

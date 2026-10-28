@@ -41,6 +41,18 @@
   border-bottom: 3px solid #b1a47d;
 }
 
+.rcc-top .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #b1a47d;
+  color: #14301f;
+  font-weight: bold;
+}
+
 .rcc-top img {
   height: 52px;
   width: auto;
@@ -156,67 +168,6 @@
   line-height: 1.35;
   margin-top: 2px;
 }
-
-/* Steps */
-/* .rcc-steps {
-  counter-reset: s;
-  list-style: none;
-  padding: 0;
-  margin-top: 14px;
-}
-
-.rcc-steps li {
-  counter-increment: s;
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 12px 0;
-  border-top: 1px solid #dde1dc;
-}
-
-.rcc-steps li::before {
-  content: counter(s);
-  flex: 0 0 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #b1a47d;
-  color: #07683a;
-  font: 700 18px/34px 'Barlow Condensed', sans-serif;
-  text-align: center;
-}
-
-.rcc-steps b {
-  display: block;
-  font: 700 18px 'Barlow Condensed', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.rcc-steps span {
-  font-size: 15px;
-  color: #4d5a4e;
-} */
-
-/* Call to action
-.rcc-cta {
-  margin: 26px 20px 0;
-  padding: 24px 18px;
-  border-radius: 16px;
-  background: #14301f;
-  color: #fff;
-  text-align: center;
-}
-
-.rcc-cta h2 {
-  font-size: 28px;
-  margin-bottom: 14px;
-}
-
-.rcc-cta .stack {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-} */
 
 /* Footer */
 .rcc-foot {
@@ -474,4 +425,11 @@
   #view-games:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+  
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
   }

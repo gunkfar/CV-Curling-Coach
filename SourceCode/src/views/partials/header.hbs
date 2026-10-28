@@ -1,0 +1,14 @@
+<header class="rcc-top">
+  <a href="/">
+    <img src="../resources/img/logo.png"
+         alt="Rock Creek Curling">
+  </a>
+  
+    {{#if user}}
+  <div class="avatar">
+    {{user.initials}}
+  </div>
+{{else}}
+  <p>NO USER FOUND</p>
+{{/if}}
+</header>

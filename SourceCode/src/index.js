@@ -62,6 +62,11 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
+
 app.use(
   bodyParser.urlencoded({
     extended: true,
@@ -83,10 +88,6 @@ app.get('/landing', (req, res) => {
   }); 
 });
 
-///Testing
-app.get('/home', (req, res) => {
-  res.render('pages/home'); 
-});
 
 // Games on selected date
 app.get('/gamesOnDate', (req, res) => {
@@ -153,6 +154,7 @@ app.post('/login', async (req, res) => {
       req.session.first_name = user.first_name,
       req.session.username = user.username;
 
+      user.initials = (user.first_name[0] + user.last_name[0]).toUpperCase();
       req.session.user = user;
       req.session.save();
 
@@ -190,7 +192,8 @@ app.post('/register', async (req, res) => {
       user_id: user.user_id,
       username: user.username,
       first_name: user.first_name,
-      last_name: user.last_name
+      last_name: user.last_name,
+      initials: (user.first_name[0] + user.last_name[0]).toUpperCase()
     };
 
     // wait for the session to save before redirecting

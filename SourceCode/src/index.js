@@ -89,10 +89,43 @@ app.get('/landing', (req, res) => {
 });
 
 
-// Games on selected date
-app.get('/gamesOnDate', (req, res) => {
-  res.render('pages/gamesOnDate');
+app.get('/gamesOnDate', async (req, res) => {
+  const selectedDate = req.query.date; // date that is queried from calendar click 
+
+  try {
+    const gamesat6 = await axios.get(
+      'https://rockcreekcurling.com/api/draw/leagues-at',
+      {
+        params: {
+          t: `${selectedDate}T18:00:00` // 6:00 pm
+        }
+      }
+    );
+
+    const gamesat815 = await axios.get(
+      'https://rockcreekcurling.com/api/draw/leagues-at',
+      {
+        params: {
+          t: `${selectedDate}T20:15:00`// 8:15 pm
+        }
+      }
+    );
+
+    const leagues6 = gamesat6.data.leagues;
+    const leagues815 = gamesat815.data.leagues;
+
+    res.render('pages/gamesOnDate', {
+      selectedDate,
+      leagues6,
+      leagues815
+    });
+
+  } catch (error) {
+    console.error('Error fetching curling games:', error.message);
+    res.status(500).send('Error loading games');
+  }
 });
+
 
 ///// login get and post /////
 app.get('/login', (req, res) => {
@@ -239,9 +272,9 @@ app.get('/home', async(req, res) => {
 
 
 ///// logout /////
-app.get('/logout', async (req, res) => {
+app.post('/logout', async (req, res) => {
   req.session.destroy();
-  res.render('pages/logout');
+  res.redirect('/landing');
 });
 
 // Authentication Required

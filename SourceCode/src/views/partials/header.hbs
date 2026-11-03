@@ -4,11 +4,26 @@
          alt="Rock Creek Curling">
   </a>
   
-    {{#if user}}
-  <div class="avatar">
-    {{user.initials}}
+{{#if user}}
+  <div class="avatar-container">
+    <button class="avatar" onclick="menu()">
+      {{user.initials}}
+    </button>
+    <div id="dropdown" class="dropdown">
+      <a href="/home">Home</a>
+      <a href="/logout">Logout</a>
+    </div>
   </div>
-{{else}}
-  <p>NO USER FOUND</p>
 {{/if}}
+
+<script>
+  function menu() {
+    document.getElementById('dropdown').classList.toggle('show');
+  }
+    document.addEventListener('click', (event) => {
+    if (!event.target.closest('.avatar-container')) {
+      document.getElementById('dropdown')?.classList.remove('show');
+    }
+  });
+</script>
 </header>

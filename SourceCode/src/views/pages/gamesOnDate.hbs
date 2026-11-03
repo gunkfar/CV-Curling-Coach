@@ -16,7 +16,47 @@
         <section class="rcc-sec">
           <h1>Games on Selected Date</h1>
           <p class="rcc-sub" id="selected-date"></p>
-          <p class="rcc-sub">No games available yet.</p>
+          
+        <div class="game-time">
+            <h2>6:00 PM</h2>
+        
+        {{#each leagues6}}
+        <h3>{{this.league}}</h3> 
+        {{!-- displays the league from the api query response --}}
+
+        <div class="games-list">
+          {{#each this.games}} 
+          {{!-- accesses the games from the api query response --}}
+            <p>
+              Sheet {{this.sheet}}:
+              {{this.team1}} vs {{this.team2}}
+            {{!-- the games and the two teams from the api query response --}} 
+            </p>
+          {{/each}}
+        </div>
+        {{/each}}
+        </div>
+
+          <div class="game-time">
+            <h2>8:15 PM</h2>
+        
+        {{#each leagues815}}
+        <h3>{{this.league}}</h3> 
+        {{!-- displays the league from the api query response --}}
+
+        <div class="games-list">
+          {{#each this.games}} 
+          {{!-- accesses the games from the api query response --}}
+            <p>
+              Sheet {{this.sheet}}:
+              {{this.team1}} vs {{this.team2}}
+            {{!-- the games and the two teams from the api query response --}} 
+            </p>
+          {{/each}}
+        </div>
+        {{/each}}
+        </div>
+
         </section>
       </main>
 

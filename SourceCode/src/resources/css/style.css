@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap');
+
+.rcc {
+  font-family: 'Barlow', system-ui, sans-serif;
+  font-weight: 500;
+  color: #14301f;
+  background: #f4f5f3;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.rcc * {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.rcc-wrap {
+  width: 100%;
+  max-width: 430px;
+  background: #f4f5f3;
+}
+
+/* Headings */
+.rcc h1,
+.rcc h2,
+.rcc h3,
+.rcc .cond {
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Navigation */
+.rcc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #07683a;
+  border-bottom: 3px solid #b1a47d;
+}
+
+.rcc-top .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #b1a47d;
+  color: #14301f;
+  font-weight: bold;
+}
+
+.rcc-top img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+/* Buttons */
+.rcc-btn {
+  border: 0;
+  border-radius: 10px;
+  background: #07683a;
+  color: #fff;
+  font: 600 16px 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.rcc-btn.gold {
+  background: #b1a47d;
+  color: #07683a;
+}
+
+.rcc-btn.line {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #b1a47d;
+}
+
+.rcc-btn.sm {
+  width: auto;
+  padding: 9px 16px;
+  background: #b1a47d;
+  color: #07683a;
+}
+
+.rcc-btn-end {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background-color: #b1a47d;
+    border: none;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    margin: 4px;
+}
+
+.rcc-btn-end.active {
+    background-color: #2c653e;
+    outline: 2px solid #b1a47d;
+    outline-offset: 2px;
+}
+
+/* Hero section */
+.rcc-hero {
+  background: #07683a;
+  color: #fff;
+  padding: 30px 20px 34px;
+  text-align: center;
+}
+
+.rcc-hero img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.rcc-hero h1 {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.rcc-hero p {
+  margin: 12px auto 22px;
+  max-width: 300px;
+  color: #e4ecdf;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.rcc-hero .stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Content sections */
+.rcc-sec {
+  padding: 28px 20px 6px;
+}
+
+.rcc-sec h2 {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+
+.rcc-sub {
+  color: #5d695e;
+  font-size: 15px;
+}
+
+/* Feature cards */
+.rcc-card {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dde1dc;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.rcc-card svg {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+}
+
+.rcc-card h3 {
+  font-size: 19px;
+  color: #07683a;
+}
+
+.rcc-card p {
+  font-size: 15px;
+  color: #4d5a4e;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* Footer */
+.rcc-foot {
+  padding: 26px 20px 34px;
+  text-align: center;
+  font-size: 13px;
+  color: #667066;
+}
+
+.rcc-foot b {
+  display: block;
+  font: 700 15px 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #07683a;
+}
+
+.rcc-login {
+  background: #07683a;
+  color: #fff;
+  padding: 40px 20px;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 700 15px 'Barlow Condensed', sans-serif;
+  letter-spacing: .01em;
+}
+
+.rcc-login-card {
+  width: 100%;
+  max-width: 340px;
+  padding: 28px 22px;
+  background: #14301f;
+  border: 1px solid #b1a47d;
+  /* border-radius: 16px; */
+}
+
+.rcc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rcc-field label {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.rcc-login-submit {
+  margin-top: 4px;
+  background: #b1a47d;
+  color: #07683a;
+}
+
+.rcc-register a {
+  color: #d7c99f;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+ 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Search */
+.rcc .search {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.rcc .search input[type="search"] {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1.5px solid #dde1dc;
+  border-radius: 10px;
+  background: #fff;
+  color: #14301f;
+  font: inherit;
+}
+
+/* Horizontal game rows */
+.rcc .scroll-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 12px 0;
+}
+
+.rcc .game-card {
+  flex: 0 0 78%;
+  margin-top: 0;
+  scroll-snap-align: start;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rcc .game-thumb {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rcc .house-placeholder {
+  background: radial-gradient(circle, #fff 0 12%, #b1a47d 12% 35%, #fff 35% 55%, #07683a 55%);
+}
+
+/* Calendar popup */
+.rcc .calendar-popup {
+  width: calc(100% - 32px);
+  max-width: 398px;
+  margin: 16px auto 0;
+  padding: 16px;
+  border: 0;
+  border-bottom: 4px solid #b1a47d;
+  border-radius: 0 0 16px 16px;
+  background: #f4f5f3;
+  color: #14301f;
+}
+
+.calendar-popup::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.rcc .calendar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rcc .calendar-head a {
+  color: #07683a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rcc .calendar {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.rcc .calendar th {
+  padding-bottom: 6px;
+  font-size: 13px;
+  color: #667066;
+}
+
+.rcc .day {
+  display: block;
+  cursor: pointer;
+}
+
+.rcc .day input {
+  position: absolute;
+  opacity: 0;
+}
+
+.rcc .day span {
+  display: block;
+  padding: 9px 0;
+  border-radius: 8px;
+}
+
+.rcc .day.has-games span {
+  font-weight: 700;
+  box-shadow: inset 0 -3px 0 #b1a47d;
+}
+
+.rcc .day input:checked + span {
+  background: #07683a;
+  color: #fff;
+}
+
+.rcc .calendar-popup .stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.rcc .calendar-popup .rcc-btn.gold {
+  background: transparent;
+  color: #07683a;
+  border: 2px solid #07683a;
+}
+    .calendar-popup:not([open]) {
+      display: none !important;
+    }
+
+    /* Center calendar popup */
+    .calendar-popup[open] {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      width: 350px;
+      max-width: 90vw;
+      max-height: 90vh;
+      box-sizing: border-box;
+      padding: 24px;
+      border-radius: 12px;
+      overflow-y: auto;
+    }
+
+    .calendar-popup::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+  .calendar {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  .calendar td {
+    text-align: center;
+    padding: 3px;
+  }
+
+  .calendar-day {
+    width: 100%;
+    min-height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .calendar-day:hover {
+    background: #f5e6b8;
+    color: #222;
+  }
+
+  .calendar-day.selected {
+    background: #d4a62c;
+    color: #222;
+    font-weight: bold;
+  }
+
+  #view-games:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+
+.avatar-container {
+  position: relative;
+}
+
+.avatar {
+  border: none;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  min-width: 120px;
+  z-index: 10;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown.show {
+  display: block;
+}
+.dropdown a:hover {
+  background-color: #eee;
+}

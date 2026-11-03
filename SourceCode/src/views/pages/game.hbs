@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games on Date - Rock Creek Curling</title>
+  <link rel="stylesheet" href="../resources/css/style.css">
+  <style>
+      .house { width: 100%; max-width: 560px; display: block; margin: 16px auto; border-radius: 8px; }
+   </style>
+</head>
+
+<body>
+  <div class="rcc">
+    <div class="rcc-wrap">
+       {{> header}}
+      <main>
+        <section class="rcc-sec">
+          <h1>Game</h1>
+          <div id="house"></div>
+          {{!-- change to have a class rcc-btn-end--}}
+          <div id="ends"></div> 
+          <button id="back-button" type="submit" class="rcc-btn sm" >back</button>
+          <button id="next-button" type="submit" class="rcc-btn sm" >next</button>
+         </section>
+      </main>
+      <footer class="rcc-foot">
+        <b>Rock Creek Curling</b>
+        Lafayette, CO
+      </footer>
+
+    </div>
+  </div>
+
+<!--Code to display the house -->
+  <script>
+   /* Testing stones 0 is red, 1 is yellow*/
+   //shot number reset for every end
+   const shots = [
+   {shot_num: 0, end: 1, color: 0, x: 10,  y: -8},
+   {shot_num: 1, end: 1, color: 1, x: -40, y: 25},
+   {shot_num: 2, end: 1, color: 0, x: 70,  y: 60},
+   {shot_num: 3, end: 1, color: 1, x: -95, y: -50},
+
+
+   {shot_num: 0, end: 2, color: 0, x: 10,  y: -8},
+   {shot_num: 1, end: 2, color: 1, x: -40, y: 25},
+   {shot_num: 2, end: 2, color: 0, x: 70,  y: 60},
+   {shot_num: 3, end: 2, color: 1, x: -95, y: -50},
+   ];
+      function house(stones = [], cur = null){
+         let s = `<svg class="house" viewBox="-210 -210 420 420" role="img"
+               aria-label="Curling house" xmlns="http://www.w3.org/2000/svg">
+               <rect x="-210" y="-210" width="420" height="420" fill="#f6f9f9"/>
+               <circle r="180" fill="#2c653e"/>
+               <circle r="120" fill="#f1ecda"/>
+               <circle r="60"  fill="#2c653e"/>
+               <circle r="15"  fill="#afa380" stroke="#142f0a" stroke-width="1"/>
+               <line x1="-210" y1="0" x2="210" y2="0" stroke="#142f0a" stroke-opacity=".55"/>
+               <line x1="0" y1="-210" x2="0" y2="210" stroke="#142f0a" stroke-opacity=".55"/>
+               <line x1="-210" y1="-185" x2="210" y2="-185" stroke="#142f0a" stroke-opacity=".35"/>`;
+      
+
+         stones.forEach(o => {
+            if (o.out) return;
+            s += `<g transform="translate(${o.x} ${o.y})">
+               <circle r="10" fill="#9a9ea3" stroke="#222" stroke-width="1.2"/>
+               <circle r="6" fill="${o.color ? '#e0a800' : '#b3261e'}" stroke="#222" stroke-width=".8"/>
+            </g>`;
+         });
+
+         if (cur && !cur.out) {
+            s += `<circle cx="${cur.x}" cy="${cur.y}" r="16" fill="none"
+                     stroke="#142f0a" stroke-width="3" stroke-dasharray="5 3"/>`;
+         }
+         return s + '</svg>';
+      }
+
+      const TOTAL_ENDS = 8;
+      const MAX_STONES = 16;
+      const ends = Array.from({ length: TOTAL_ENDS }, () => []);  // ends[0] = stones in end 1
+      
+      shots.forEach(shot => { //add each shot to its end
+         ends[shot.end - 1].push(shot);
+      });
+
+      let currentEnd = 0;
+      let shown = 0; 
+
+      function render() {
+         const stones = ends[currentEnd].slice(0, shown);
+         const cur = stones[stones.length - 1] || null;
+
+         document.getElementById('house').innerHTML = house(stones, cur);
+
+         // end buttons
+         document.getElementById('ends').innerHTML = ends.map((e, i) =>
+            `<button type="button"
+               data-end="${i}"
+               class="rcc-btn-end ${i === currentEnd ? 'active' : ''}"
+               aria-label="${i + 1}"
+               aria-pressed="${i === currentEnd}">
+               ${i + 1}
+            </button>`
+         ).join('');
+
+         // back and next button pressability logic
+         const first = currentEnd === 0 && shown === 0;
+         const last  = currentEnd === ends.length - 1 && shown === ends[currentEnd].length;
+         document.getElementById('back-button').disabled = first
+         document.getElementById('next-button').disabled = last
+      }
+
+      function next() {
+         if (shown < ends[currentEnd].length) shown++;
+         else if (currentEnd < ends.length - 1) { 
+            currentEnd++; 
+            shown = 0;
+         }
+         render();
+      }
+
+      function back() {
+         if (shown > 0) shown--;
+         else if (currentEnd > 0) { 
+            currentEnd--; 
+            shown = ends[currentEnd].length;
+         }
+         render();
+      }
+
+      document.getElementById('back-button').onclick = back;
+      document.getElementById('next-button').onclick  = next;
+
+      document.getElementById('ends').addEventListener('click', event => {
+         const button = event.target.closest('button[data-end]');
+         if (!button) return;
+
+         currentEnd = Number(button.dataset.end);
+         shown = 0;
+         render();
+      });
+
+      render();
+  </script>
+</body>
+</html>

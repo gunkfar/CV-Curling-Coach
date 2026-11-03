@@ -94,6 +94,10 @@ app.get('/gamesOnDate', (req, res) => {
   res.render('pages/gamesOnDate');
 });
 
+app.get('/game', (req, res) => {
+  res.render('pages/game');
+});
+
 ///// login get and post /////
 app.get('/login', (req, res) => {
   res.render('pages/login',
@@ -118,8 +122,6 @@ app.post('/login', async (req, res) => {
     lname: 'Doe',
     pwd: 'test456',
   }
-
-
 
 
   const userarr = [user1, user2];

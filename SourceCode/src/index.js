@@ -88,12 +88,6 @@ app.get('/landing', (req, res) => {
   }); 
 });
 
-
-// Games on selected date
-app.get('/gamesOnDate', (req, res) => {
-  res.render('pages/gamesOnDate');
-});
-
 app.get('/game', (req, res) => {
   res.render('pages/game');
 });

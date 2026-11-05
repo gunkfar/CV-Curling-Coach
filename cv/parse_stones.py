@@ -28,45 +28,65 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
         return
 
     parsed_frames = []
-    current_end = 1
+    current_end = 0
     max_stones_in_current_end = 0
 
-    # Helper function to check if two frames represent the exact same resting state
+    # Helper function to check if two frames represent the exact same resting state (look backward)
     def is_same_resting_state(stones_a, stones_b, tol):
         if len(stones_a) != len(stones_b):
             return False
-        matched_count = 0
+        
         b_remaining = list(stones_b)
+        
+        # For each stone in A, find its closest matching stone of the same color in B (using greedy appraoch to find closest rock instead of sorting by position due to YOLO jitter)
         for sa in stones_a:
-            found_match = False
+            best_idx = -1
+            min_dist = float('inf')
+            
             for i, sb in enumerate(b_remaining):
                 if sa["color"] == sb["color"]:
                     dist = math.hypot(sa["position"][0] - sb["position"][0], 
-                                      sa["position"][1] - sb["position"][1])
-                    if dist <= tol:
-                        found_match = True
-                        b_remaining.pop(i)
-                        break
-            if found_match:
-                matched_count += 1
-        return matched_count == len(stones_a)
+                                    sa["position"][1] - sb["position"][1])
+                    if dist < min_dist:
+                        min_dist = dist
+                        best_idx = i
+                        
+            # If no same-color stone is within tolerance, states don't match
+            if best_idx == -1 or min_dist > tol:
+                return False
+                
+            # Remove the matched stone so it can't be double-claimed
+            b_remaining.pop(best_idx)
+            
+        return True
 
-    # Helper function to determine if a frame is unsettled (stones are moving)
+    # Helper function to determine if a frame is unsettled (look foward to see if stones are moving)
     def is_unsettled_frame(curr_stones, next_stones, tol):
         if not next_stones:
             return False
-        if len(next_stones) > len(curr_stones):
-            return True
+            
+        next_remaining = list(next_stones)
+        
+        # For each stone in current, find its closest matching stone of the same color in next (using greedy as described above)
         for cs in curr_stones:
-            closest_dist = float('inf')
-            for ns in next_stones:
+            best_idx = -1
+            min_dist = float('inf')
+            
+            for i, ns in enumerate(next_remaining):
                 if cs["color"] == ns["color"]:
-                    d = math.hypot(cs["position"][0] - ns["position"][0], 
-                                   cs["position"][1] - ns["position"][1])
-                    if d < closest_dist:
-                        closest_dist = d
-            if closest_dist > tol * 1.5:
+                    dist = math.hypot(cs["position"][0] - ns["position"][0], 
+                                    cs["position"][1] - ns["position"][1])
+                    if dist < min_dist:
+                        min_dist = dist
+                        best_idx = i
+                        
+            # If any stone moved further than tolerance, the frame is unsettled
+            if best_idx == -1 or min_dist > tol:
                 return True
+                
+            # Remove the matched stone so it can't be double-claimed
+            next_remaining.pop(best_idx)
+            
         return False
 
     # Main iteration through all raw frames
@@ -90,8 +110,8 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
                 parsed_frames.append(current)
             continue
 
-        # Check if the game is in the teardown/clearing phase (stone count dropping toward 0)
-        if max_stones_in_current_end >= 4 and num_stones < max_stones_in_current_end:
+        # Check if the game is in the teardown/clearing phase (stone count dropping from at least 4 to 0) 
+        if max_stones_in_current_end >= 4 and num_stones < max_stones_in_current_end: # might want to change to lower/higher number but 4 seems like a good spot based on youtube feeds
             future_stones = [len(frames[k]["stones"]) for k in range(i, len(frames))]
             if 0 in future_stones:
                 zero_idx = future_stones.index(0)
@@ -127,7 +147,7 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
 
     print(f"\nFiltering complete. Retained {len(parsed_frames)} stable frames")
     
-    # Copy qualified JSON and image files to the target output directory
+    # Copy qualified JSON to the target output directory
     for pf in parsed_frames:
         f_idx = pf["frame_index"]
         filename = f"frame_{f_idx:04d}"
@@ -140,11 +160,6 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
             
             with open(dst_json, "w") as jf_out:
                 json.dump(j_data, jf_out, indent=2)
-            
-        src_img = img_in / f"{filename}.png"
-        dst_img = img_out / f"{filename}.png"
-        if src_img.exists():
-            shutil.copy(src_img, dst_img)
 
     print(f"Parsed files successfully copied to '{output_dir}/'.")
 

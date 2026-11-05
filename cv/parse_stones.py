@@ -16,7 +16,7 @@ def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double
     # 1. Group parsed frames by end number
     ends_dict = {}
     for pf in parsed_frames:
-        end_num = pf.get("parsed_end", 0)
+        end_num = pf.get("end_num", 0)
         if end_num not in ends_dict:
             ends_dict[end_num] = []
         ends_dict[end_num].append(pf)
@@ -182,7 +182,7 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
             
             # Keep exactly 1 clean empty frame to mark the start of the new end
             if not (parsed_frames and len(parsed_frames[-1]["stones"]) == 0):
-                current["parsed_end"] = current_end
+                current["end_num"] = current_end
                 parsed_frames.append(current)
             continue
 
@@ -200,9 +200,6 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
         if num_stones > max_stones_in_current_end:
             max_stones_in_current_end = num_stones
 
-        # Tag the current frame with its estimated end number
-        current["parsed_end"] = current_end
-
         # Get stones from the immediate next frame for motion check
         next_frame_stones = frames[i + 1]["stones"] if i + 1 < len(frames) else []
         
@@ -212,14 +209,14 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
 
         # Skip duplicate static frames that match the previous resting state
         if parsed_frames:
-            same_end_parsed = [pf for pf in parsed_frames if pf.get("parsed_end") == current_end and len(pf["stones"]) > 0]
+            same_end_parsed = [pf for pf in parsed_frames if pf.get("end_num") == current_end and len(pf["stones"]) > 0]
             if same_end_parsed:
                 last_accepted_stones = same_end_parsed[-1]["stones"]
                 if is_same_resting_state(stones, last_accepted_stones, yolo_tolerance):
                     continue
 
         #calc number of shots in this end
-        shots_in_this_end = [pf for pf in parsed_frames if pf.get("parsed_end") == current_end and len(pf["stones"]) > 0]
+        shots_in_this_end = [pf for pf in parsed_frames if pf.get("end_num") == current_end and len(pf["stones"]) > 0]
         current_shot_number = len(shots_in_this_end)
 
         # Append the successfully filtered stable frame, may have to change this for CV pipeline

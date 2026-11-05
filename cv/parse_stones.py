@@ -3,20 +3,92 @@ import math
 import shutil
 from pathlib import Path
 
-def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_tolerance=2.5):
-    # Setup input and output directories for JSON and image files
-    json_in = Path(input_dir) / "json"
-    img_in = Path(input_dir) / "images"
+def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double_gap_threshold=42.0):
+    """
+    Performs a post-parsing lookback pass for the entire game. Skips ends with >= 17 frames. 
+    Detects missing shots using timestamp deltas, injects synthetic frames, and re-indexes shot numbers.
+    """
+    if not parsed_frames:
+        return parsed_frames
+
+    fixed_frames = []
     
+    # 1. Group parsed frames by end number
+    ends_dict = {}
+    for pf in parsed_frames:
+        end_num = pf.get("parsed_end", 0)
+        if end_num not in ends_dict:
+            ends_dict[end_num] = []
+        ends_dict[end_num].append(pf)
+
+    # 2. Process each end independently
+    for end_num, frames_in_end in ends_dict.items():
+        frames_in_end.sort(key=lambda x: x["time"])
+        
+        # If the end already has 17 or more frames skip gap analysis entirely
+        if len(frames_in_end) >= 17:
+            fixed_frames.extend(frames_in_end)
+            continue
+
+        rebuilt_end_frames = []
+        
+        for i in range(len(frames_in_end)):
+            current_frame = frames_in_end[i]
+            
+            if i > 0:
+                prev_frame = rebuilt_end_frames[-1]
+                time_delta = current_frame["time"] - prev_frame["time"]
+                
+                # Case A: Two Consecutive Hogged Stones 
+                if time_delta >= double_gap_threshold:
+                    print(f"[LOOKBACK WARNING] End {end_num}: Large time gap of {time_delta:.1f}s detected "
+                          f"between timestamp {prev_frame['time']:.1f}s and {current_frame['time']:.1f}s.")
+                    print(f"[LOOKBACK FIX] Injecting 2 synthetic missing frames (Two Hogged Stones case).")
+                    
+                    t1 = prev_frame["time"] + (time_delta / 3.0) #determine times for injected frams
+                    t2 = prev_frame["time"] + (2.0 * time_delta / 3.0)
+                    
+                    synth_frame_1 = prev_frame.copy() #add synth frames
+                    synth_frame_1["time"] = t1
+                    synth_frame_1["shot_num"] = len(rebuilt_end_frames) + 1
+                    rebuilt_end_frames.append(synth_frame_1)
+                    
+                    synth_frame_2 = prev_frame.copy()
+                    synth_frame_2["time"] = t2
+                    synth_frame_2["shot_num"] = len(rebuilt_end_frames) + 1
+                    rebuilt_end_frames.append(synth_frame_2)
+                
+                # Case B: Single Missing Shot (or repalcmemnt knockout)
+                elif time_delta >= single_gap_threshold:
+                    print(f"[LOOKBACK WARNING] End {end_num}: Time gap of {time_delta:.1f}s detected "
+                          f"between timestamp {prev_frame['time']:.1f}s and {current_frame['time']:.1f}s.")
+                    print(f"[LOOKBACK FIX] Injecting 1 synthetic missing frame (Single Hog / Replacement case).")
+                    
+                    t_synth = prev_frame["time"] + (time_delta / 2.0) #determine times for injected frame 
+                    
+                    synth_frame = prev_frame.copy()
+                    synth_frame["time"] = t_synth
+                    synth_frame["shot_num"] = len(rebuilt_end_frames) + 1
+                    rebuilt_end_frames.append(synth_frame)
+
+            current_frame["shot_num"] = len(rebuilt_end_frames) + 1
+            rebuilt_end_frames.append(current_frame)
+            
+        fixed_frames.extend(rebuilt_end_frames)
+        
+    return fixed_frames
+
+def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_tolerance=2.5):
+    # Setup input and output directories for JSON
+    json_in = Path(input_dir) / "json"
     json_out = Path(output_dir) / "json"
-    img_out = Path(output_dir) / "images"
     json_out.mkdir(parents=True, exist_ok=True)
-    img_out.mkdir(parents=True, exist_ok=True)
+
 
     print(f"Parsing frames and detecting ends from '{input_dir}'...")
 
     # Load all sorted frame JSON files from the input directory
-    json_files = sorted(json_in.glob("frame_*.json"))
+    json_files = list(json_in.glob("*.json"))
     frames = []
     for jf in json_files:
         with open(jf, "r") as f:
@@ -27,8 +99,11 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
         print("No frames found to parse.")
         return
 
+    frames.sort(key=lambda x: x["time"])
+
     parsed_frames = []
-    current_end = 0
+    current_end = 0 #can use this var to add end num to jsons
+    current_shot_number = 0 #DONT use this var to add shot num to jsons, backwards edge case code later gives (hopefully) correct final num shot
     max_stones_in_current_end = 0
 
     # Helper function to check if two frames represent the exact same resting state (look backward)
@@ -102,6 +177,7 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
             
             if max_stones_in_current_end >= 4 and upcoming_zeros >= 2:
                 current_end += 1
+                current_shot_number = 0
                 max_stones_in_current_end = 0
             
             # Keep exactly 1 clean empty frame to mark the start of the new end
@@ -116,7 +192,7 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
             if 0 in future_stones:
                 zero_idx = future_stones.index(0)
                 clearing_segment = future_stones[:zero_idx + 1]
-                # Filter out clearing phase frames if stone counts strictly decrease down to 0
+                # Filter out clearing phase frames if stone counts strictly decrease down to 0, should work as iamges are usually cleared in 1-2 frames
                 if len(clearing_segment) > 1 and all(clearing_segment[j] >= clearing_segment[j+1] for j in range(len(clearing_segment) - 1)):
                     continue
 
@@ -142,12 +218,19 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
                 if is_same_resting_state(stones, last_accepted_stones, yolo_tolerance):
                     continue
 
-        # Append the successfully filtered stable frame
-        parsed_frames.append(current)
+        #calc number of shots in this end
+        shots_in_this_end = [pf for pf in parsed_frames if pf.get("parsed_end") == current_end and len(pf["stones"]) > 0]
+        current_shot_number = len(shots_in_this_end)
 
+        # Append the successfully filtered stable frame, may have to change this for CV pipeline
+        current["end_num"] = current_end
+        current["shot_num"] = current_shot_number # not actual confirmed current shot, still have to account for edge cases
+        parsed_frames.append(current)
+        
+    parsed_frames = post_parse_lookback_and_fix(parsed_frames) #fix edge cases, now should have accurate shots and end nums
     print(f"\nFiltering complete. Retained {len(parsed_frames)} stable frames")
     
-    # Copy qualified JSON to the target output directory
+    # Copy qualified JSON to the target output directory (DOESNT WORK!, will have to change this all for CV pipeline anyways so safe to ignore)
     for pf in parsed_frames:
         f_idx = pf["frame_index"]
         filename = f"frame_{f_idx:04d}"

@@ -29,13 +29,30 @@ def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double
             ends_dict[end_num] = []
         ends_dict[end_num].append(pf)
 
+    # [GAME STATE WARNING] Total Ends Count Check
+    total_detected_ends = len(ends_dict)
+    if total_detected_ends != 8:
+        print(f"[GAME STATE WARNING] Total detected ends is {total_detected_ends}. Matches are typically 8 ends.")
+
+    # [GAME STATE WARNING] End Sequence Continuity Check
+    sorted_end_nums = sorted(ends_dict.keys())
+    expected_ends = list(range(min(sorted_end_nums), min(sorted_end_nums) + len(sorted_end_nums))) if sorted_end_nums else []
+    if sorted_end_nums != expected_ends:
+        print(f"[GAME STATE WARNING] End sequence has gaps or is non-contiguous: detected ends are {sorted_end_nums}.")
+
+
+
     # 2. Process each end independently
     for end_num, frames_in_end in ends_dict.items():
         frames_in_end.sort(key=lambda x: x["time"])
         
         # If the end already has 17 or more frames skip gap analysis entirely
         if len(frames_in_end) >= 17:
-            fixed_frames.extend(frames_in_end)
+            fixed_frames.extend(frames_in_end)        
+            # [GAME STATE WARNING] Check if an end that skipped gap analysis deviates from 17 frames
+            if len(frames_in_end) != 17:
+                print(f"[GAME STATE WARNING] End {end_num} has {len(frames_in_end)} frames. Each curling end should have exactly 17 frames.")
+
             continue
 
         rebuilt_end_frames = []
@@ -81,6 +98,12 @@ def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double
 
             current_frame["shot_num"] = len(rebuilt_end_frames) + 1
             rebuilt_end_frames.append(current_frame)
+
+        # [GAME STATE WARNING] Check if the rebuilt end matches the required 17 frames rule
+        if len(rebuilt_end_frames) != 17:
+            print(f"[GAME STATE WARNING] End {end_num} resulted in {len(rebuilt_end_frames)} frames after lookback. Each curling end should have exactly 17 frames.")
+
+
             
         fixed_frames.extend(rebuilt_end_frames)
         
@@ -260,6 +283,13 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
         
     parsed_frames = post_parse_lookback_and_fix(parsed_frames) #fix edge cases, now should have accurate shots and end nums
     print(f"\nFiltering complete. Retained {len(parsed_frames)} stable frames")
+
+        
+    # [GAME STATE WARNING] Total Game Frame Count Check
+    total_game_frames = len(parsed_frames)
+    expected_total_frames = 8 * 17
+    if total_game_frames != expected_total_frames:
+        print(f"[GAME STATE WARNING] Total game frame count is {total_game_frames}. Expected exactly {expected_total_frames} frames (17 frames per end across 8 ends).")
     
     # Copy qualified JSON to the target output directory (DOESNT WORK!, will have to change this all for CV pipeline anyways so safe to ignore)
     for pf in parsed_frames:

@@ -1,7 +1,15 @@
 import json
 import math
-import shutil
 from pathlib import Path
+
+SHEET_CAMERA_MAP = {
+    1: (1, 7),
+    2: (2, 8),
+    3: (3, 9),
+    4: (4, 10),
+    5: (5, 11),
+    6: (6, 12),
+}
 
 def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double_gap_threshold=42.0):
     """
@@ -78,11 +86,11 @@ def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double
         
     return fixed_frames
 
-def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_tolerance=2.5):
+def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_num = 1, yolo_tolerance=2.5):
     # Setup input and output directories for JSON
-    json_in = Path(input_dir) / "json"
+    json_in = Path(input_dir) / "json" #input folder must contain just the frames of the two cameras for that specific sheet for that game, any json combining must come post parsing
     json_out = Path(output_dir) / "json"
-    json_out.mkdir(parents=True, exist_ok=True)
+    json_out.mkdir(parents=True, exist_ok=True) 
 
 
     print(f"Parsing frames and detecting ends from '{input_dir}'...")
@@ -105,6 +113,8 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
     current_end = 0 #can use this var to add end num to jsons
     current_shot_number = 0 #DONT use this var to add shot num to jsons, backwards edge case code later gives (hopefully) correct final num shot
     max_stones_in_current_end = 0
+
+    cam_house_1, cam_house_2 = SHEET_CAMERA_MAP.get(sheet_num, (1, 7)) #get cameras for given sheet (1 as default)
 
     # Helper function to check if two frames represent the exact same resting state (look backward)
     def is_same_resting_state(stones_a, stones_b, tol):
@@ -167,13 +177,30 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
     # Main iteration through all raw frames
     for i in range(len(frames)):
         current = frames[i]
+        cam_in_frame = current.get("camera")
+        
+        # Determine house being shot from and house being shot at based on alternating ends
+        if current_end % 2 == 0:
+            house_shot_from = cam_house_1
+            house_shot_at = cam_house_2
+        else:
+            house_shot_from = cam_house_2
+            house_shot_at = cam_house_1
+        active_camera = house_shot_at
+
+        # Discard frames that do not match the target house camera being shot at
+        if cam_in_frame != active_camera:
+            continue
+
         stones = current["stones"]
         num_stones = len(stones)
         
         # Handle frames where no stones are detected on the sheet
-        if num_stones == 0:
+        if num_stones == 0 and (cam_in_frame in (cam_house_1, cam_house_2)):
             # Look ahead across the next 2 frames to verify sustained empty board state
-            upcoming_zeros = sum(1 for k in range(i, min(i + 2, len(frames))) if len(frames[k]["stones"]) == 0)
+            upcoming_zeros = sum(
+                1 for k in range(i, min(i + 2, len(frames)))
+                  if frames[k].get("camera") in (cam_house_1, cam_house_2) and len(frames[k]["stones"]) == 0)
             
             if max_stones_in_current_end >= 4 and upcoming_zeros >= 2:
                 current_end += 1
@@ -188,7 +215,10 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
 
         # Check if the game is in the teardown/clearing phase (stone count dropping from at least 4 to 0) 
         if max_stones_in_current_end >= 4 and num_stones < max_stones_in_current_end: # might want to change to lower/higher number but 4 seems like a good spot based on youtube feeds
-            future_stones = [len(frames[k]["stones"]) for k in range(i, len(frames))]
+            future_stones = [
+                len(frames[k]["stones"]) for k in range(i, len(frames)) 
+                if frames[k].get("camera") == active_camera
+            ]
             if 0 in future_stones:
                 zero_idx = future_stones.index(0)
                 clearing_segment = future_stones[:zero_idx + 1]
@@ -201,7 +231,11 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
             max_stones_in_current_end = num_stones
 
         # Get stones from the immediate next frame for motion check
-        next_frame_stones = frames[i + 1]["stones"] if i + 1 < len(frames) else []
+        next_frame_stones = []
+        for k in range(i + 1, len(frames)):
+            if frames[k].get("camera") == active_camera:
+                next_frame_stones = frames[k]["stones"]
+                break
         
         # Skip frames where stones are actively moving (unsettled)
         if is_unsettled_frame(stones, next_frame_stones, yolo_tolerance):
@@ -244,4 +278,4 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", yolo_to
     print(f"Parsed files successfully copied to '{output_dir}/'.")
 
 if __name__ == "__main__":
-    parse_curling_frames(input_dir="raw_curling_data", output_dir="parsed_curling_data", yolo_tolerance=2.5)
+    parse_curling_frames(input_dir="raw_curling_data", output_dir="parsed_curling_data", sheet_num = 1, yolo_tolerance=2.5) #change sheet num during pipeline work

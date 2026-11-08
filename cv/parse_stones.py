@@ -76,11 +76,13 @@ def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double
                     synth_frame_1 = prev_frame.copy() #add synth frames
                     synth_frame_1["time"] = t1
                     synth_frame_1["shot_num"] = len(rebuilt_end_frames) + 1
+                    synth_frame_1["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}" #cahnge filename so it doesn't override
                     rebuilt_end_frames.append(synth_frame_1)
                     
                     synth_frame_2 = prev_frame.copy()
                     synth_frame_2["time"] = t2
                     synth_frame_2["shot_num"] = len(rebuilt_end_frames) + 1
+                    synth_frame_2["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}" #cahnge filename so it doesn't override
                     rebuilt_end_frames.append(synth_frame_2)
                 
                 # Case B: Single Missing Shot (or repalcmemnt knockout)
@@ -94,6 +96,7 @@ def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double
                     synth_frame = prev_frame.copy()
                     synth_frame["time"] = t_synth
                     synth_frame["shot_num"] = len(rebuilt_end_frames) + 1
+                    synth_frame["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}" #cahnge filename so it doesn't override
                     rebuilt_end_frames.append(synth_frame)
 
             current_frame["shot_num"] = len(rebuilt_end_frames) + 1
@@ -123,7 +126,9 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
     frames = []
     for jf in json_files:
         with open(jf, "r") as f:
-            frames.append(json.load(f))
+            data = json.load(f)
+            data["source_filename"] = jf.stem  # Store the original filename stem
+            frames.append(data)
 
     # Guard clause if no frames are found
     if not frames:
@@ -291,19 +296,25 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
     if total_game_frames != expected_total_frames:
         print(f"[GAME STATE WARNING] Total game frame count is {total_game_frames}. Expected exactly {expected_total_frames} frames (17 frames per end across 8 ends).")
     
-    # Copy qualified JSON to the target output directory (DOESNT WORK!, will have to change this all for CV pipeline anyways so safe to ignore)
+    # Copy qualified JSON to the target output directory 
     for pf in parsed_frames:
-        f_idx = pf["frame_index"]
-        filename = f"frame_{f_idx:04d}"
-        
-        src_json = json_in / f"{filename}.json"
+        filename = pf.get("source_filename")
         dst_json = json_out / f"{filename}.json"
+        src_json = json_in / f"{filename}.json"
+
         if src_json.exists():
+            # Load original raw data for real frames and add calculated fields
             with open(src_json, "r") as jf_in:
                 j_data = json.load(jf_in)
-            
-            with open(dst_json, "w") as jf_out:
-                json.dump(j_data, jf_out, indent=2)
+            j_data["end_num"] = pf.get("end_num")
+            j_data["shot_num"] = pf.get("shot_num")
+            j_data["source_filename"] = filename
+        else:
+            # Synthetic frames do not exist in raw input; use the modified pf dictionary directly
+            j_data = pf
+
+        with open(dst_json, "w") as jf_out:
+            json.dump(j_data, jf_out, indent=2)
 
     print(f"Parsed files successfully copied to '{output_dir}/'.")
 

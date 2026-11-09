@@ -3,3 +3,5 @@ curling_samples/
 __pycache__/
 *.pyc
 downloaded_images/
+parsed_curling_data/
+raw_curling_data/

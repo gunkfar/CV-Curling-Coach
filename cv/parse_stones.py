@@ -11,17 +11,11 @@ SHEET_CAMERA_MAP = {
     6: (6, 12),
 }
 
-def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double_gap_threshold=42.0):
-    """
-    Performs a post-parsing lookback pass for the entire game. Skips ends with >= 17 frames. 
-    Detects missing shots using timestamp deltas, injects synthetic frames, and re-indexes shot numbers.
-    """
+def post_parse_lookback_and_fix(parsed_frames, double_gap_threshold=100.0):
     if not parsed_frames:
         return parsed_frames
 
     fixed_frames = []
-    
-    # 1. Group parsed frames by end number
     ends_dict = {}
     for pf in parsed_frames:
         end_num = pf.get("end_num", 0)
@@ -29,30 +23,18 @@ def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double
             ends_dict[end_num] = []
         ends_dict[end_num].append(pf)
 
-    # [GAME STATE WARNING] Total Ends Count Check
-    total_detected_ends = len(ends_dict)
-    if total_detected_ends != 8:
-        print(f"[GAME STATE WARNING] Total detected ends is {total_detected_ends}. Matches are typically 8 ends.")
-
-    # [GAME STATE WARNING] End Sequence Continuity Check
     sorted_end_nums = sorted(ends_dict.keys())
     expected_ends = list(range(min(sorted_end_nums), min(sorted_end_nums) + len(sorted_end_nums))) if sorted_end_nums else []
     if sorted_end_nums != expected_ends:
         print(f"[GAME STATE WARNING] End sequence has gaps or is non-contiguous: detected ends are {sorted_end_nums}.")
 
-
-
-    # 2. Process each end independently
     for end_num, frames_in_end in ends_dict.items():
         frames_in_end.sort(key=lambda x: x["time"])
         
-        # If the end already has 17 or more frames skip gap analysis entirely
         if len(frames_in_end) >= 17:
             fixed_frames.extend(frames_in_end)        
-            # [GAME STATE WARNING] Check if an end that skipped gap analysis deviates from 17 frames
             if len(frames_in_end) != 17:
                 print(f"[GAME STATE WARNING] End {end_num} has {len(frames_in_end)} frames. Each curling end should have exactly 17 frames.")
-
             continue
 
         rebuilt_end_frames = []
@@ -64,50 +46,71 @@ def post_parse_lookback_and_fix(parsed_frames, single_gap_threshold=22.0, double
                 prev_frame = rebuilt_end_frames[-1]
                 time_delta = current_frame["time"] - prev_frame["time"]
                 
-                # Case A: Two Consecutive Hogged Stones 
-                if time_delta >= double_gap_threshold:
+                # --- HELPER: Get added color between frames ---
+                def get_added_color(frame_a, frame_b):
+                    count_a = {"green": sum(1 for s in frame_a["stones"] if s["color"] == "green"),
+                               "yellow": sum(1 for s in frame_a["stones"] if s["color"] == "yellow")}
+                    count_b = {"green": sum(1 for s in frame_b["stones"] if s["color"] == "green"),
+                               "yellow": sum(1 for s in frame_b["stones"] if s["color"] == "yellow")}
+                    if count_b["green"] > count_a["green"]:
+                        return "green"
+                    elif count_b["yellow"] > count_a["yellow"]:
+                        return "yellow"
+                    return None
+
+                color_violation = False
+                if len(rebuilt_end_frames) >= 2:
+                    col_prev_prev = get_added_color(rebuilt_end_frames[-2], rebuilt_end_frames[-1])
+                    col_prev_curr = get_added_color(rebuilt_end_frames[-1], current_frame)
+                    if col_prev_prev is not None and col_prev_curr is not None and col_prev_prev == col_prev_curr:
+                        color_violation = True
+
+                # --- HIERARCHICAL LOGIC WITH 16-FRAME GUARD ---
+                # Double-hog only allowed if len(frames_in_end) <= 15 (meaning at least 2 frames are missing overall)
+                if time_delta >= double_gap_threshold and len(frames_in_end) <= 15:
                     print(f"[LOOKBACK WARNING] End {end_num}: Large time gap of {time_delta:.1f}s detected "
                           f"between timestamp {prev_frame['time']:.1f}s and {current_frame['time']:.1f}s.")
-                    print(f"[LOOKBACK FIX] Injecting 2 synthetic missing frames (Two Hogged Stones case).")
+                    print(f"[LOOKBACK FIX] Injecting 2 synthetic missing frames (Double Hogged Stones).")
                     
-                    t1 = prev_frame["time"] + (time_delta / 3.0) #determine times for injected frams
+                    t1 = prev_frame["time"] + (time_delta / 3.0)
                     t2 = prev_frame["time"] + (2.0 * time_delta / 3.0)
-                    
-                    synth_frame_1 = prev_frame.copy() #add synth frames
-                    synth_frame_1["time"] = t1
-                    synth_frame_1["shot_num"] = len(rebuilt_end_frames) + 1
-                    synth_frame_1["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}" #cahnge filename so it doesn't override
-                    rebuilt_end_frames.append(synth_frame_1)
-                    
-                    synth_frame_2 = prev_frame.copy()
-                    synth_frame_2["time"] = t2
-                    synth_frame_2["shot_num"] = len(rebuilt_end_frames) + 1
-                    synth_frame_2["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}" #cahnge filename so it doesn't override
-                    rebuilt_end_frames.append(synth_frame_2)
+                    for t_synth in [t1, t2]:
+                        synth_frame = prev_frame.copy()
+                        synth_frame["time"] = t_synth
+                        synth_frame["shot_num"] = len(rebuilt_end_frames) + 1
+                        synth_frame["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}"
+                        rebuilt_end_frames.append(synth_frame)
                 
-                # Case B: Single Missing Shot (or repalcmemnt knockout)
-                elif time_delta >= single_gap_threshold:
-                    print(f"[LOOKBACK WARNING] End {end_num}: Time gap of {time_delta:.1f}s detected "
+                elif color_violation:
+                    # Primary Single-Hog Check (Color alternation break)
+                    print(f"[LOOKBACK WARNING] End {end_num}: Single hog detected via Color Alternation Break "
                           f"between timestamp {prev_frame['time']:.1f}s and {current_frame['time']:.1f}s.")
-                    print(f"[LOOKBACK FIX] Injecting 1 synthetic missing frame (Single Hog / Replacement case).")
+                    print(f"[LOOKBACK FIX] Injecting 1 synthetic missing frame.")
                     
-                    t_synth = prev_frame["time"] + (time_delta / 2.0) #determine times for injected frame 
-                    
+                    t_synth = prev_frame["time"] + (time_delta / 2.0)
                     synth_frame = prev_frame.copy()
                     synth_frame["time"] = t_synth
                     synth_frame["shot_num"] = len(rebuilt_end_frames) + 1
-                    synth_frame["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}" #cahnge filename so it doesn't override
+                    synth_frame["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}"
                     rebuilt_end_frames.append(synth_frame)
 
             current_frame["shot_num"] = len(rebuilt_end_frames) + 1
             rebuilt_end_frames.append(current_frame)
 
-        # [GAME STATE WARNING] Check if the rebuilt end matches the required 17 frames rule
+        # --- TRAILING PASS: Catch last-stone(s) hogged where no subsequent frame exists ---
+        while len(rebuilt_end_frames) < 17:
+            last_frame = rebuilt_end_frames[-1]
+            synth_time = last_frame["time"] + 40.0
+            synth_frame = last_frame.copy()
+            synth_frame["time"] = synth_time
+            synth_frame["shot_num"] = len(rebuilt_end_frames) + 1
+            synth_frame["source_filename"] = f"{last_frame.get('source_filename', 'frame')}_synth_trailing_{len(rebuilt_end_frames) + 1}"
+            print(f"[LOOKBACK FIX] End {end_num}: Injecting trailing synthetic frame at {synth_time:.1f}s (Last Stone Hogged case).")
+            rebuilt_end_frames.append(synth_frame)
+
         if len(rebuilt_end_frames) != 17:
             print(f"[GAME STATE WARNING] End {end_num} resulted in {len(rebuilt_end_frames)} frames after lookback. Each curling end should have exactly 17 frames.")
 
-
-            
         fixed_frames.extend(rebuilt_end_frames)
         
     return fixed_frames
@@ -202,6 +205,9 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
             
         return False
 
+    pending_start_frame = None
+    committed_start_ends = set()
+
     # Main iteration through all raw frames
     for i in range(len(frames)):
         current = frames[i]
@@ -224,7 +230,7 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
         num_stones = len(stones)
         
         # Handle frames where no stones are detected on the sheet
-        if num_stones == 0 and (cam_in_frame in (cam_house_1, cam_house_2)):
+        if num_stones == 0:
             # Look ahead across the next 2 frames to verify sustained empty board state
             upcoming_zeros = sum(
                 1 for k in range(i, min(i + 2, len(frames)))
@@ -234,12 +240,29 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
                 current_end += 1
                 current_shot_number = 0
                 max_stones_in_current_end = 0
-            
-            # Keep exactly 1 clean empty frame to mark the start of the new end
-            if not (parsed_frames and len(parsed_frames[-1]["stones"]) == 0):
-                current["end_num"] = current_end
-                parsed_frames.append(current)
+                # Recalculate active camera for the new end immediately
+                if current_end % 2 == 0:
+                    house_shot_from = cam_house_1
+                    house_shot_at = cam_house_2
+                else:
+                    house_shot_from = cam_house_2
+                    house_shot_at = cam_house_1
+                active_camera = house_shot_at
+
+            # Keep track of the latest empty frame at the active camera as candidate start frame
+            pending_start_frame = current
             continue
+
+        # Check if we need to commit the starting empty frame for the current end before processing stones
+        if current_end not in committed_start_ends:
+            if pending_start_frame is not None:
+                start_frame = pending_start_frame.copy()
+            else:
+                start_frame = current.copy()
+            start_frame["end_num"] = current_end
+            if not (parsed_frames and parsed_frames[-1].get("source_filename") == start_frame.get("source_filename")):
+                parsed_frames.append(start_frame)
+            committed_start_ends.add(current_end)
 
         # Check if the game is in the teardown/clearing phase (stone count dropping from at least 4 to 0) 
         if max_stones_in_current_end >= 4 and num_stones < max_stones_in_current_end: # might want to change to lower/higher number but 4 seems like a good spot based on youtube feeds
@@ -277,7 +300,7 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
                 if is_same_resting_state(stones, last_accepted_stones, yolo_tolerance):
                     continue
 
-        #calc number of shots in this end
+        # Calc number of shots in this end
         shots_in_this_end = [pf for pf in parsed_frames if pf.get("end_num") == current_end and len(pf["stones"]) > 0]
         current_shot_number = len(shots_in_this_end)
 
@@ -286,15 +309,33 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
         current["shot_num"] = current_shot_number # not actual confirmed current shot, still have to account for edge cases
         parsed_frames.append(current)
         
+    # Ensure any pending start frame for the final active end is committed if not already
+    if pending_start_frame is not None and current_end not in committed_start_ends:
+        start_frame = pending_start_frame.copy()
+        start_frame["end_num"] = current_end
+        if not (parsed_frames and parsed_frames[-1].get("source_filename") == start_frame.get("source_filename")):
+            parsed_frames.append(start_frame)
+        committed_start_ends.add(current_end)
+
     parsed_frames = post_parse_lookback_and_fix(parsed_frames) #fix edge cases, now should have accurate shots and end nums
     print(f"\nFiltering complete. Retained {len(parsed_frames)} stable frames")
 
-        
-    # [GAME STATE WARNING] Total Game Frame Count Check
+    # --- CONSOLIDATED GAME STATE WARNING ---
+    ends_dict = {}
+    for pf in parsed_frames:
+        end_num = pf.get("end_num", 0)
+        if end_num not in ends_dict:
+            ends_dict[end_num] = []
+        ends_dict[end_num].append(pf)
+
+    total_detected_ends = len(ends_dict)
     total_game_frames = len(parsed_frames)
     expected_total_frames = 8 * 17
-    if total_game_frames != expected_total_frames:
-        print(f"[GAME STATE WARNING] Total game frame count is {total_game_frames}. Expected exactly {expected_total_frames} frames (17 frames per end across 8 ends).")
+
+    if total_detected_ends != 8 or total_game_frames != expected_total_frames:
+        print(f"[GAME STATE WARNING] Structure mismatch: Detected {total_detected_ends} ends "
+              f"with {total_game_frames} total frames. Expected 8 ends ({expected_total_frames} frames). "
+              f"This discrepancy may be due to an extra end resulting from a tie or missing frame data.")
     
     # Copy qualified JSON to the target output directory 
     for pf in parsed_frames:
@@ -317,6 +358,3 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
             json.dump(j_data, jf_out, indent=2)
 
     print(f"Parsed files successfully copied to '{output_dir}/'.")
-
-if __name__ == "__main__":
-    parse_curling_frames(input_dir="raw_curling_data", output_dir="parsed_curling_data", sheet_num = 1, yolo_tolerance=2.5) #change sheet num during pipeline work

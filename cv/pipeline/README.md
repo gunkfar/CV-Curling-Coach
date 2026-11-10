@@ -30,10 +30,11 @@ pip install boto3 python-dotenv numpy opencv-python requests tzdata
 
 Run from the repo root.
 
-**Build manifests** for every game in progress at a time. Which time to pass: pick a time when the games you want were in progress, ideally partway through rather than at the start. The script finds every game in progress at that moment and builds a manifest for each, using the game’s actual scheduled start and end.
+**Build manifests** by running the script at the two standard query times for a date, 6:00 PM and 8:15 PM. These match the website's `gamesOnDate`, so CV and the UI see the same games.
 
 ```
-python cv/pipeline/build_manifests.py 2026-10-26T19:00
+python cv/pipeline/build_manifests.py 2026-10-26T18:00
+python cv/pipeline/build_manifests.py 2026-10-26T20:15
 ```
 
 A time without an offset is treated as Denver time. Manifests are saved to `cv/pipeline/manifests/` (test output; don't commit).

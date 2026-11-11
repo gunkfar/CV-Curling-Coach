@@ -264,7 +264,7 @@ app.get('/gamesOnDate', async (req, res) => {
   }
 });
 
-///// home /////
+// home //
 app.get('/home', async(req, res) => {
 
   res.render('pages/home', {
@@ -274,11 +274,27 @@ app.get('/home', async(req, res) => {
   });
 });
 
+// app
+app.post('/game', async(req, res) => {
+  try {
+    const { user_id, first_name, last_name, username, password, game_id } = req.body;
 
-// *****************************************************
-// <!-- Section 5 : Start Server-->
-// *****************************************************
-// starting the server and keeping the connection open to listen for more requests
+    const query = `UPDATE users 
+                   SET saved_games = array_append(saved_games, $6)
+                   WHERE user_id = ($1);`;
+
+  }
+  catch (err) {
+    console.error(err);
+    res.status(500).render('pages/', {
+      error: 'Cannot save game. Please try again.'
+    });
+  }
+});
+
+
+// start server
+
 const port = 3000;
 module.exports = app.listen(3000);
 console.log(`test test testServer is listening on port ${port}`);

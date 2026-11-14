@@ -22,16 +22,13 @@
         
         {{#each leagues6}}
         <h3>{{this.league}}</h3> 
-        {{!-- displays the league from the api query response --}}
 
         <div class="games-list">
           {{#each this.games}} 
-          {{!-- accesses the games from the api query response --}}
-            <p>
+             <a href="/game?gameId={{this.game_id}}" class="game-card">
               Sheet {{this.sheet}}:
               {{this.team1}} vs {{this.team2}}
-            {{!-- the games and the two teams from the api query response --}} 
-            </p>
+            </a>
           {{/each}}
         </div>
         {{/each}}
@@ -41,17 +38,15 @@
             <h2>8:15 PM</h2>
         
         {{#each leagues815}}
-        <h3>{{this.league}}</h3> 
-        {{!-- displays the league from the api query response --}}
+        <h3>{{this.league}}
+        </h3> 
 
         <div class="games-list">
           {{#each this.games}} 
-          {{!-- accesses the games from the api query response --}}
-            <p>
+             <a href="/game?gameId={{this.game_id}}" class="game-card">
               Sheet {{this.sheet}}:
               {{this.team1}} vs {{this.team2}}
-            {{!-- the games and the two teams from the api query response --}} 
-            </p>
+            </a>
           {{/each}}
         </div>
         {{/each}}

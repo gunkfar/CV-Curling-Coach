@@ -11,6 +11,13 @@
 </head>
 
 <body>
+      <p>Game ID: {{gameId}}</p>
+      {{#if gameData}}
+      <p>Game data found!</p>
+      {{else}}
+      <p>Game has not been processed yet.</p>
+      {{/if}}
+
   <div class="rcc">
    <div class="loadingScreen" style="display: none;"> 
       {{!-- style="display: none;" --}}

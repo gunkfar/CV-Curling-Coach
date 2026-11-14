@@ -88,8 +88,38 @@ app.get('/landing', (req, res) => {
   }); 
 });
 
-app.get('/game', (req, res) => {
-  res.render('pages/game');
+app.get('/game', async (req, res) => {
+  const gameId = req.query.gameId;
+
+  try {
+    const response = await axios.get(
+      `https://rockcreekcurling.com/api/coach/storage/${gameId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.API_KEY}`
+        }
+      }
+    );
+
+    const gameData = response.data;
+
+    res.render('pages/game', {
+      gameId,
+      gameData
+    });
+
+  } catch (error) {
+    if (error.response?.status === 404) {
+      // Game has not been processed yet
+      return res.render('pages/game', {
+        gameId,
+        gameData: null
+      });
+    }
+
+    console.error('Storage API error:', error.message);
+    res.status(502).send('Unable to retrieve game data.');
+  }
 });
 
 ///// login get and post /////
@@ -249,8 +279,21 @@ app.get('/gamesOnDate', async (req, res) => {
       }
     );
 
-    const leagues6 = gamesat6.data.leagues;
-    const leagues815 = gamesat815.data.leagues;
+    const leagues6 = gamesat6.data.leagues.map(league => ({
+      ...league,
+      games: league.games.map(game => ({
+        ...game,
+        game_id: `${selectedDate}-1800-${game.sheet}`
+      }))
+    }));
+
+    const leagues815 = gamesat815.data.leagues.map(league => ({
+      ...league,
+      games: league.games.map(game => ({
+        ...game,
+        game_id: `${selectedDate}-2015-${game.sheet}`
+      }))
+    }));
 
     res.render('pages/gamesOnDate', {
       selectedDate,

@@ -1,0 +1,17 @@
+# Local experimental calibration implementations and data
+/calibration_versions/
+
+# Generated camera calibration test images
+/camera_calibration_v2/test_outputs/
+
+
+/camera_calibration_v2/test_render_integration.py
+
+
+/camera_calibration_v2/calibrations/SOURCES.md
+
+
+# /camera_calibration_v2/calibrations/SHA256SUMS.txt
+
+
+# /camera_calibration_v2/tests

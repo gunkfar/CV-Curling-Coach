@@ -1,0 +1,656 @@
+{
+  "schema_version": 2,
+  "camera_id": "camera12",
+  "image_size": [
+    1280,
+    1024
+  ],
+  "H_ice_to_image": [
+    [
+      160.62249781834385,
+      -0.32591521925834943,
+      916.1009739316402
+    ],
+    [
+      -18.149524938346687,
+      -267.8751770675098,
+      528.2070040177365
+    ],
+    [
+      -0.03712480426251035,
+      -0.0013198322454821634,
+      1.0
+    ]
+  ],
+  "lens": {
+    "K": [
+      [
+        1280.0,
+        0.0,
+        639.5
+      ],
+      [
+        0.0,
+        1820.1599999999999,
+        509.67812428687273
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "dist": [
+      -0.5621313738897702,
+      0.320924789657286,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "model": "pinhole",
+    "distortion_model": "radial_k1_k2_cy",
+    "parameters": {
+      "fx": 1280.0,
+      "fy": 1820.1599999999999,
+      "cx": 639.5,
+      "cy": 509.67812428687273,
+      "pixel_aspect": 1.422,
+      "k1": -0.5621313738897702,
+      "k2": 0.320924789657286
+    },
+    "convention": "OpenCV pinhole: K = [[fx,0,cx],[0,fy,cy],[0,0,1]], fy = pixel_aspect*fx, dist = [k1,k2,p1,p2,k3] with p1 = p2 = k3 = 0; x = (u-cx)/fx, y = (v-cy)/fy, x_d = x (1 + k1 r^2 + k2 r^4); K and dist are authoritative, 'parameters' repeats them for reading and is checked on load"
+  },
+  "pose": null,
+  "status": {
+    "ice_homography": "estimated",
+    "lens_distortion": "estimated",
+    "focal_length": "assumed",
+    "principal_point": "weak",
+    "pixel_aspect": "assumed",
+    "camera_pose": "unknown",
+    "camera_height": "unknown"
+  },
+  "sheet": {
+    "ring_radii_m": {
+      "12": 1.829,
+      "8": 1.219,
+      "4": 0.61,
+      "btn": 0.1524
+    },
+    "back_line_x_m": 1.829,
+    "stone_radius_m": 0.1455,
+    "hog_line_inner_x_m": -6.401,
+    "hog_line_width_m": 0.1016
+  },
+  "valid_region_m": [
+    [
+      1.829,
+      0.0
+    ],
+    [
+      1.8201928650834482,
+      0.17927334966276634
+    ],
+    [
+      1.7938562778575085,
+      0.35682019896749856
+    ],
+    [
+      1.75024387405421,
+      0.5309306746984116
+    ],
+    [
+      1.6897756649631435,
+      0.6999279977957492
+    ],
+    [
+      1.6130339924931414,
+      0.8621846316547497
+    ],
+    [
+      1.5207579209013553,
+      1.0161379561928523
+    ],
+    [
+      1.4138361192004458,
+      1.1603053167353077
+    ],
+    [
+      1.2932983027901954,
+      1.2932983027901954
+    ],
+    [
+      1.1603053167353077,
+      1.4138361192004458
+    ],
+    [
+      1.0161379561928525,
+      1.5207579209013553
+    ],
+    [
+      0.86218463165475,
+      1.6130339924931412
+    ],
+    [
+      0.6999279977957493,
+      1.6897756649631435
+    ],
+    [
+      0.5309306746984116,
+      1.7502438740542101
+    ],
+    [
+      0.3568201989674987,
+      1.7938562778575085
+    ],
+    [
+      0.17927334966276665,
+      1.820192865083448
+    ],
+    [
+      1.1199394978202546e-16,
+      1.829
+    ],
+    [
+      -0.17927334966276642,
+      1.8201928650834482
+    ],
+    [
+      -0.35682019896749845,
+      1.7938562778575085
+    ],
+    [
+      -0.5309306746984113,
+      1.7502438740542101
+    ],
+    [
+      -0.6999279977957491,
+      1.6897756649631435
+    ],
+    [
+      -0.8621846316547498,
+      1.6130339924931414
+    ],
+    [
+      -1.0161379561928519,
+      1.5207579209013553
+    ],
+    [
+      -1.1603053167353075,
+      1.413836119200446
+    ],
+    [
+      -1.2932983027901952,
+      1.2932983027901954
+    ],
+    [
+      -1.4138361192004458,
+      1.1603053167353077
+    ],
+    [
+      -1.5207579209013553,
+      1.0161379561928523
+    ],
+    [
+      -1.6130339924931412,
+      0.86218463165475
+    ],
+    [
+      -1.6897756649631435,
+      0.6999279977957494
+    ],
+    [
+      -1.75024387405421,
+      0.5309306746984117
+    ],
+    [
+      -1.7938562778575085,
+      0.3568201989674992
+    ],
+    [
+      -1.820192865083448,
+      0.17927334966276676
+    ],
+    [
+      -1.829,
+      2.239878995640509e-16
+    ],
+    [
+      -1.8201928650834482,
+      -0.1792733496627663
+    ],
+    [
+      -1.7938562778575085,
+      -0.3568201989674988
+    ],
+    [
+      -1.7502438740542101,
+      -0.5309306746984112
+    ],
+    [
+      -1.6897756649631437,
+      -0.699927997795749
+    ],
+    [
+      -1.6130339924931414,
+      -0.8621846316547497
+    ],
+    [
+      -1.5207579209013555,
+      -1.0161379561928519
+    ],
+    [
+      -1.413836119200446,
+      -1.1603053167353072
+    ],
+    [
+      -1.2932983027901956,
+      -1.2932983027901952
+    ],
+    [
+      -1.1603053167353083,
+      -1.4138361192004454
+    ],
+    [
+      -1.0161379561928523,
+      -1.5207579209013553
+    ],
+    [
+      -0.8621846316547501,
+      -1.6130339924931412
+    ],
+    [
+      -0.6999279977957502,
+      -1.689775664963143
+    ],
+    [
+      -0.5309306746984118,
+      -1.75024387405421
+    ],
+    [
+      -0.35682019896749934,
+      -1.7938562778575082
+    ],
+    [
+      -0.17927334966276606,
+      -1.8201928650834482
+    ],
+    [
+      -3.359818493460763e-16,
+      -1.829
+    ],
+    [
+      0.1792733496627654,
+      -1.8201928650834482
+    ],
+    [
+      0.35682019896749867,
+      -1.7938562778575085
+    ],
+    [
+      0.530930674698411,
+      -1.7502438740542101
+    ],
+    [
+      0.6999279977957497,
+      -1.6897756649631432
+    ],
+    [
+      0.8621846316547496,
+      -1.6130339924931414
+    ],
+    [
+      1.0161379561928519,
+      -1.5207579209013555
+    ],
+    [
+      1.1603053167353077,
+      -1.4138361192004458
+    ],
+    [
+      1.293298302790195,
+      -1.2932983027901956
+    ],
+    [
+      1.4138361192004452,
+      -1.1603053167353083
+    ],
+    [
+      1.5207579209013553,
+      -1.0161379561928523
+    ],
+    [
+      1.613033992493141,
+      -0.8621846316547501
+    ],
+    [
+      1.689775664963143,
+      -0.6999279977957503
+    ],
+    [
+      1.75024387405421,
+      -0.5309306746984119
+    ],
+    [
+      1.7938562778575082,
+      -0.35682019896749945
+    ],
+    [
+      1.8201928650834482,
+      -0.17927334966276617
+    ]
+  ],
+  "metrics": {
+    "n_points": 17,
+    "rms_px": 0.6795691909607894,
+    "max_px": 1.4219564076002011,
+    "line_constraints": {
+      "hog_inner_edge": {
+        "n": 150,
+        "mean_px_undist": -0.19583160027559207,
+        "rms_px_undist": 0.4138141440715925,
+        "mean_px_raw": -0.12080444714733102,
+        "rms_px_raw": 0.25349126206710265,
+        "max_abs_px_raw": 0.5591052241946876
+      }
+    },
+    "lens": {
+      "model": "radial_k1_k2_cy",
+      "params_estimated": [
+        "k1",
+        "k2",
+        "cy"
+      ],
+      "params": {
+        "k1": -0.5621313738897702,
+        "k2": 0.320924789657286,
+        "cy": 509.67812428687273
+      },
+      "params_formal_sd": {
+        "k1": 0.006154192275104504,
+        "k2": 0.011289570839510989,
+        "cy": 0.7051434746345088
+      },
+      "correlation": [
+        [
+          1.0,
+          -0.9899,
+          -0.1921
+        ],
+        [
+          -0.9899,
+          1.0,
+          0.1876
+        ],
+        [
+          -0.1921,
+          0.1876,
+          1.0
+        ]
+      ],
+      "fit_rms_px": 0.33618328242658985,
+      "k1": -0.5621313738897702,
+      "k1_formal_sd": 0.006154192275104504,
+      "k2": 0.320924789657286,
+      "cy": 509.67812428687273,
+      "focal_px_assumed": 1280.0,
+      "pixel_aspect_assumed": 1.422,
+      "principal_point_assumed": [
+        639.5,
+        511.5
+      ],
+      "principal_point": [
+        639.5,
+        509.67812428687273
+      ],
+      "straightness_raw": {
+        "back_line_candidate": {
+          "n": 109,
+          "rms_px": 6.150379372335844,
+          "max_px": 12.70713568776644
+        },
+        "center_line": {
+          "n": 103,
+          "rms_px": 0.7267458721640235,
+          "max_px": 2.118843089544274
+        },
+        "tee_line": {
+          "n": 64,
+          "rms_px": 3.624069407867569,
+          "max_px": 8.066549954622586
+        }
+      },
+      "straightness_undistorted": {
+        "back_line_candidate": {
+          "n": 109,
+          "rms_px": 0.40709836867391713,
+          "max_px": 0.9755646292528173
+        },
+        "center_line": {
+          "n": 103,
+          "rms_px": 0.30518053589996064,
+          "max_px": 0.8884247865256623
+        },
+        "tee_line": {
+          "n": 64,
+          "rms_px": 0.23505011727407724,
+          "max_px": 0.5861283379931674
+        }
+      },
+      "leave_one_line_out": {
+        "back_line_candidate": {
+          "k1_without_line": -0.36613306827559,
+          "params_without_line": {
+            "k1": -0.36613306827559,
+            "k2": -0.8029536395520931,
+            "cy": 516.1889629830833
+          },
+          "K_without_line": [
+            [
+              1280.0,
+              0.0,
+              639.5
+            ],
+            [
+              0.0,
+              1820.1599999999999,
+              516.1889629830833
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "dist_without_line": [
+            -0.36613306827559,
+            -0.8029536395520931,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw": {
+            "n": 109,
+            "rms_px": 6.150379372335844,
+            "max_px": 12.70713568776644
+          },
+          "undistorted": {
+            "n": 109,
+            "rms_px": 16.228626271334704,
+            "max_px": 41.86087030200052
+          }
+        },
+        "center_line": {
+          "k1_without_line": -0.49374608803651043,
+          "params_without_line": {
+            "k1": -0.49374608803651043,
+            "k2": 0.2065996552223441,
+            "cy": 242.5230971791786
+          },
+          "K_without_line": [
+            [
+              1280.0,
+              0.0,
+              639.5
+            ],
+            [
+              0.0,
+              1820.1599999999999,
+              242.5230971791786
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "dist_without_line": [
+            -0.49374608803651043,
+            0.2065996552223441,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw": {
+            "n": 103,
+            "rms_px": 0.7267458721640235,
+            "max_px": 2.118843089544274
+          },
+          "undistorted": {
+            "n": 103,
+            "rms_px": 12.031347515515874,
+            "max_px": 42.90643877794961
+          }
+        },
+        "tee_line": {
+          "k1_without_line": -0.4873873307247861,
+          "params_without_line": {
+            "k1": -0.4873873307247861,
+            "k2": 0.18247691107363298,
+            "cy": 507.634629515022
+          },
+          "K_without_line": [
+            [
+              1280.0,
+              0.0,
+              639.5
+            ],
+            [
+              0.0,
+              1820.1599999999999,
+              507.634629515022
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "dist_without_line": [
+            -0.4873873307247861,
+            0.18247691107363298,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw": {
+            "n": 64,
+            "rms_px": 3.624069407867569,
+            "max_px": 8.066549954622586
+          },
+          "undistorted": {
+            "n": 64,
+            "rms_px": 0.5589058207386428,
+            "max_px": 1.3341450684803695
+          }
+        }
+      },
+      "fold_limit_r2": Infinity,
+      "max_image_r2": 0.5221028404946405,
+      "fold_over_inside_image": false
+    }
+  },
+  "provenance": {
+    "model": "radial_k1_k2_cy+homography+line_constraints",
+    "method": "cv2.findHomography(method=0) on manual keypoint annotation undistorted with a fixed lens model; then scipy.optimize.least_squares refinement with physical-line constraints (point-to-line residuals, see calibration_w_hogline/estimation/line_constraints.py)",
+    "annotation_image": "camera12_20260520_180031.jpg",
+    "annotator": "audited draft: keypoints re-measured from raw pixels; corrections by a fixed rule; UNREVIEWED",
+    "annotation_reviewed": false,
+    "orientation": {
+      "back_line_image_side": "right",
+      "confirmed": false,
+      "frame": "canonical (rotated 180 deg from the original image) for house-left cameras; converted back by tools/to_original.py",
+      "note": "House on the image right, hog line at the image left, image unmirrored (logo text reads normally): +X (toward the back line) = image right, +Y = image up. Assumption only, not surveyed."
+    },
+    "keypoints_used": [
+      "cl_back_12",
+      "cl_back_4",
+      "cl_back_8",
+      "cl_back_btn",
+      "cl_hog_12",
+      "cl_hog_4",
+      "cl_hog_8",
+      "cl_hog_btn",
+      "tee",
+      "tl_neg_12",
+      "tl_neg_4",
+      "tl_neg_8",
+      "tl_neg_btn",
+      "tl_pos_12",
+      "tl_pos_4",
+      "tl_pos_8",
+      "tl_pos_btn"
+    ],
+    "opencv_version": "5.0.0",
+    "verified": false,
+    "line_constraints": {
+      "format": "calibration_w_hogline/line_constraints/v1",
+      "sigma_kp_px_undistorted": 1.5,
+      "weighting": "each edge's N residuals divided by sigma_i * sqrt(N / n_eff): the edge counts as n_eff scalar measurements",
+      "constraints": [
+        {
+          "name": "hog_inner_edge",
+          "ice_line": "X = -6.4010 m",
+          "axis": "x",
+          "value_m": -6.401,
+          "n_points": 150,
+          "sigma_px_raw": 1.0,
+          "n_eff": 2.0,
+          "source": "cv/calibration_data/camera12/experiments/calibration_w_hogline_v2/inputs/camera12_20260520_180031.references.json"
+        }
+      ],
+      "fit_residuals": {
+        "hog_inner_edge": {
+          "n": 150,
+          "mean_px_undist": -0.19583160027559207,
+          "rms_px_undist": 0.4138141440715925,
+          "mean_px_raw": -0.12080444714733102,
+          "rms_px_raw": 0.25349126206710265,
+          "max_abs_px_raw": 0.5591052241946876
+        }
+      },
+      "optimizer": {
+        "success": true,
+        "cost": 2.1735433221651492,
+        "nfev": 7
+      },
+      "note": "H keeps its meaning (ice -> undistorted px); readers that ignore this field map points identically",
+      "border_margin_px": 5.0
+    },
+    "lens_method": "k1, k2, cy by scipy.optimize.least_squares on straightness of cv2.undistortPoints line points (calibration_w_hogline_v2; cx held at the image centre)",
+    "lens_line_points_source": "refine-lines: sub-pixel centre of the dark band at each traced point (calibration_w_hogline_v2/tools/refine_lines.py); derived from: trace_lines: darkest pixel of cross-profiles on unpainted ice (automated, whole pixels)",
+    "lens_lines_used": [
+      "back_line_candidate",
+      "center_line",
+      "tee_line"
+    ],
+    "pixel_aspect": {
+      "value": 1.422,
+      "definition": "fy/fx = K[1,1]/K[0,0] = horizontal/vertical pixel pitch; a circle on the ice looks pixel_aspect times taller than wide (reciprocal, fx/fy, is not stored)",
+      "basis": "assumed",
+      "source": "assumed hypothesis; EXPERIMENT, unverified"
+    },
+    "lens_note": "focal length is a nominal gauge value (fx is the gauge, fy = pixel_aspect * fx); principal point: cx fixed at the image centre, cy estimated from line straightness (weakly constrained); k2 estimated jointly with k1; the pixel aspect is an input, not estimated here"
+  },
+  "valid_from": "2026-11-17T06:30:23+00:00"
+}

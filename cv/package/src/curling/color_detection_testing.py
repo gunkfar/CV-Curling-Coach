@@ -12,6 +12,24 @@ COLOR_VALUES = {
     "yellow": (128, 128, 0)
 }
 
+def set_model_path(path):
+    """Set the path to the YOLO model."""
+    global MODEL_PATH
+    MODEL_PATH = path
+
+def add_color(name, rgb):
+    """Add a new color to the COLOR_VALUES dictionary."""
+    if name in COLOR_VALUES:
+        raise ValueError(f"Color '{name}' already exists.")
+    if not (isinstance(rgb, tuple) and len(rgb) == 3 and all(0 <= val <= 255 for val in rgb)):
+        raise ValueError("RGB value must be a tuple of three integers between 0 and 255.")
+    COLOR_VALUES[name] = rgb
+
+def remove_color(name):
+    """Remove a color from the COLOR_VALUES dictionary."""
+    if name not in COLOR_VALUES:
+        raise ValueError(f"Color '{name}' does not exist.")
+    del COLOR_VALUES[name]
 
 def color_detection(rgb):
     """Return the named color closest to an RGB value."""
@@ -28,6 +46,7 @@ def color_detection(rgb):
 
 def predict_and_display(image_path):
     """Predict objects and their color based on the center pixel of the bounding box, and display the annotated image."""
+    # could make this so we feed in a list of images to improve performance
     model = YOLO(MODEL_PATH)
     result = model.predict(source=image_path)[0] # returns a list of results, we take the first one since we only have one image
     annotated_image = result.plot()
@@ -53,14 +72,14 @@ def predict_and_display(image_path):
             thickness=3,
         )
         print(f"Center pixel RGB {rgb}: {color_name}")
-
+    # TODO: return annotated image
     cv2.imshow("Rock Detection with Colors", annotated_image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        raise SystemExit("Error: Usage is python color_detection_testing.py <image-path>")
+# if __name__ == "__main__":
+#     if len(sys.argv) != 2:
+#         raise SystemExit("Error: Usage is python color_detection_testing.py <image-path>")
 
-    predict_and_display(sys.argv[1])
+#     predict_and_display(sys.argv[1])

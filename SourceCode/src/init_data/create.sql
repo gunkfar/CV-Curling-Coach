@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS users (
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     password CHAR(60) NOT NULL,
-    saved_games INT ARRAY
+    saved_games TEXT[]
 );

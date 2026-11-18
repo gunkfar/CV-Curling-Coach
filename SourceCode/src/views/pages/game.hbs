@@ -45,8 +45,26 @@
     </div>
   </div>
 
-<!--Code to display the house -->
   <script>
+   const gameId = "{{gameId}}";
+   document.getElementById('save').addEventListener('click', async () => {
+   try {
+      const response = await fetch(`/game?gameId=${gameId}`, {
+         method: 'PUT'
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Request failed');
+      
+      alert('Game saved successfully!');
+
+   } catch (err) {
+      console.error('Error saving game:', err);
+      alert('Unable to save game. Please try again.');
+   }
+   });
+
+   
+   //Code to display the house
    //Testing stones 0 is red, 1 is yellow
    //shot number reset for every end
    const shots = [
@@ -124,21 +142,13 @@
          document.getElementById('back-button').disabled = first
          document.getElementById('next-button').disabled = last
       }
+
       function show(screen) {
          document.querySelector('.loadingScreen').style.display =
             screen === 'loading' ? 'flex' : 'none';
 
          document.querySelector('.rcc-wrap').style.display =
             screen === 'loading' ? 'none' : 'block';
-      }
-      async function loadGame() {
-         show('loadingScreen');
-         try {
-            show('game');
-            render();
-         } catch (error){
-            console.error('Error loading game:', error);
-         }
       }
 
       function next() {
@@ -170,6 +180,15 @@
          shown = 0;
          render();
       });
+      async function loadGame() {
+         show('loadingScreen');
+         try {
+            show('game');
+            render();
+         } catch (error){
+            console.error('Error loading game:', error);
+         }
+      }
 
       render();
       //loadGame() instead of render once API calling;

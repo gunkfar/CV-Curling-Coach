@@ -317,23 +317,29 @@ app.get('/home', async(req, res) => {
   });
 });
 
-// app
-app.post('/game', async(req, res) => {
+//game //
+app.get('/game', (req, res) => {
+  const gameId = req.query.gameId;
+  res.render('pages/game', {gameID});
+});
+
+app.put('/game', async(req, res) => {
   try {
-    const { user_id, first_name, last_name, username, password, game_id } = req.body;
-
+    const gameId = req.query.gameId;
+    const userId = req.session.user.user_id;
     const query = `UPDATE users 
-                   SET saved_games = array_append(saved_games, $6)
-                   WHERE user_id = ($1);`;
-
-  }
-  catch (err) {
+                   SET saved_games = array_append(saved_games, $1)
+                   WHERE user_id = $2
+                   AND NOT ($1::text = ANY(COALESCE(saved_games, '{}')));`; 
+    const result = await db.query(query, [gameId, userId]);
+    res.json({success: true, alreadySaved: result.rowCount === 0});
+  } catch (err) {
     console.error(err);
-    res.status(500).render('pages/', {
-      error: 'Cannot save game. Please try again.'
-    });
+    res.status(500).json({error: 'Cannot save game. Please try again'});
   }
 });
+
+// });
 
 
 // start server

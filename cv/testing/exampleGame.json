@@ -1,0 +1,8344 @@
+{
+  "gameID": "game_sheet1",
+  "frames": [
+    {
+      "end_num": 0,
+      "shot_num": 1,
+      "time": 30.0,
+      "camera": 7,
+      "stones": []
+    },
+    {
+      "end_num": 0,
+      "shot_num": 2,
+      "time": 42.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            282.9,
+            321.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 3,
+      "time": 90.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            285.3,
+            323.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 4,
+      "time": 126.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            285.3,
+            323.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 5,
+      "time": 162.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            285.3,
+            323.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 6,
+      "time": 198.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            285.3,
+            323.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 7,
+      "time": 246.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            285.3,
+            323.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 8,
+      "time": 270.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            313.2,
+            309.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            323.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 9,
+      "time": 306.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            323.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 10,
+      "time": 342.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            323.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 11,
+      "time": 378.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            323.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            314.7,
+            327.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            296.3,
+            293.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 12,
+      "time": 414.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            323.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            314.7,
+            327.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            281.6,
+            265.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 13,
+      "time": 462.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            323.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            314.7,
+            327.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            281.6,
+            265.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 14,
+      "time": 498.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            323.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            314.7,
+            327.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            281.6,
+            265.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 15,
+      "time": 534.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            258.9,
+            301.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            323.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            314.7,
+            327.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            281.6,
+            265.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            350.1,
+            270.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 16,
+      "time": 570.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            231.2,
+            287.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            302.4,
+            349.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            314.7,
+            327.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            281.6,
+            265.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            350.1,
+            270.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.1,
+            309.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 0,
+      "shot_num": 17,
+      "time": 594.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            231.2,
+            287.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            338.6,
+            327.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            258.4,
+            338.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            302.4,
+            349.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            314.7,
+            327.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            281.6,
+            265.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            251.9,
+            273.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            350.1,
+            270.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.1,
+            309.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            491.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 1,
+      "time": 624.0,
+      "camera": 1,
+      "stones": []
+    },
+    {
+      "end_num": 1,
+      "shot_num": 2,
+      "time": 636.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            254.7,
+            346.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 3,
+      "time": 672.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 4,
+      "time": 720.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 5,
+      "time": 756.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 6,
+      "time": 792.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.2,
+            283.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 7,
+      "time": 828.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.2,
+            283.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 8,
+      "time": 864.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            339.6,
+            263.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            303.2,
+            292.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 9,
+      "time": 900.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            339.6,
+            263.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            303.2,
+            292.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            211.2,
+            204.6
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 10,
+      "time": 948.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            339.6,
+            263.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.9,
+            264.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            211.2,
+            204.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 11,
+      "time": 984.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            339.6,
+            263.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.9,
+            264.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            190.6,
+            228.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            221.3,
+            193.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 12,
+      "time": 1020.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            339.6,
+            263.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.9,
+            264.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            190.6,
+            228.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            206.3,
+            220.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            225.9,
+            184.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 13,
+      "time": 1056.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            339.6,
+            263.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.9,
+            264.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            190.6,
+            228.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            291.2,
+            329.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            206.3,
+            220.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            225.9,
+            184.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            302.1,
+            292.9
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 14,
+      "time": 1092.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            339.6,
+            263.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.9,
+            264.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            190.6,
+            228.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            291.2,
+            329.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            206.3,
+            220.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            225.9,
+            184.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            310.9,
+            263.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 15,
+      "time": 1140.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            344.2,
+            232.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.9,
+            264.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            190.6,
+            228.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            291.2,
+            329.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            206.3,
+            220.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            225.9,
+            184.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            310.9,
+            263.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            337.3,
+            279.3
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 16,
+      "time": 1176.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            344.2,
+            232.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.9,
+            264.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            190.6,
+            228.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            291.2,
+            329.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            206.3,
+            220.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            225.9,
+            184.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            310.9,
+            263.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            337.3,
+            279.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            285.7,
+            392.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 1,
+      "shot_num": 17,
+      "time": 1216.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            285.8,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            249.6,
+            347.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            279.2,
+            312.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            236.9,
+            251.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            344.2,
+            232.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            275.4,
+            272.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.9,
+            264.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            190.6,
+            228.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            291.2,
+            329.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            206.3,
+            220.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            225.9,
+            184.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            310.9,
+            263.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            337.3,
+            279.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            285.7,
+            392.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 1,
+      "time": 1230.0,
+      "camera": 7,
+      "stones": []
+    },
+    {
+      "end_num": 2,
+      "shot_num": 2,
+      "time": 1242.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 3,
+      "time": 1290.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 4,
+      "time": 1326.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            271.9,
+            299.9
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 5,
+      "time": 1362.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            271.9,
+            299.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 6,
+      "time": 1398.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            271.9,
+            299.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 7,
+      "time": 1434.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            271.9,
+            299.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            277.9,
+            277.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.9,
+            300.9
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 8,
+      "time": 1470.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.4,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            277.9,
+            277.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.9,
+            300.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.0,
+            316.6
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 9,
+      "time": 1506.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.4,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            277.9,
+            277.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.0,
+            316.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 10,
+      "time": 1542.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.4,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            277.9,
+            277.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.0,
+            316.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 11,
+      "time": 1590.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.4,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            277.9,
+            277.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.0,
+            316.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            272.3,
+            314.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            313.1,
+            293.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 12,
+      "time": 1626.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.4,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.6,
+            268.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            277.9,
+            277.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.0,
+            316.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            272.3,
+            314.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            313.1,
+            293.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            295.3,
+            357.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 13,
+      "time": 1662.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            255.4,
+            244.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            248.3,
+            268.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.0,
+            316.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            272.3,
+            314.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            313.1,
+            293.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            295.3,
+            357.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            284.8,
+            280.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 14,
+      "time": 1698.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            255.4,
+            244.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            248.3,
+            268.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.0,
+            316.6
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            272.3,
+            314.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            313.1,
+            293.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            307.2,
+            328.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            284.8,
+            280.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            292.4,
+            364.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 15,
+      "time": 1734.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            255.4,
+            244.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            248.3,
+            268.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.9,
+            347.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            283.4,
+            343.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            313.1,
+            293.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            307.2,
+            328.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            284.8,
+            280.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            292.4,
+            364.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.8,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 16,
+      "time": 1770.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            255.4,
+            244.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            248.3,
+            268.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.9,
+            347.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            296.3,
+            331.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            283.4,
+            343.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            331.6,
+            318.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            307.2,
+            328.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            253.7,
+            282.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            292.4,
+            364.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            302.5,
+            278.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 2,
+      "shot_num": 17,
+      "time": 1810.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            237.6,
+            301.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            255.4,
+            244.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            240.1,
+            252.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            248.3,
+            268.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            323.0,
+            323.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            275.9,
+            347.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            296.3,
+            331.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            283.4,
+            343.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            331.6,
+            318.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            307.2,
+            328.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            253.7,
+            282.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            292.4,
+            364.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            266.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            302.5,
+            278.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 1,
+      "time": 1836.0,
+      "camera": 1,
+      "stones": []
+    },
+    {
+      "end_num": 3,
+      "shot_num": 2,
+      "time": 1848.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            312.6,
+            384.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 3,
+      "time": 1896.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            312.6,
+            384.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.1,
+            316.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 4,
+      "time": 1920.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            343.6,
+            387.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.1,
+            316.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 5,
+      "time": 1968.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            343.6,
+            387.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.1,
+            316.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            336.7,
+            300.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 6,
+      "time": 2004.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            343.6,
+            387.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.1,
+            316.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            336.7,
+            300.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 7,
+      "time": 2040.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.1,
+            316.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            336.7,
+            300.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            341.0,
+            400.9
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 8,
+      "time": 2076.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.1,
+            316.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            336.7,
+            300.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            341.0,
+            400.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.1,
+            276.3
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 9,
+      "time": 2112.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            336.7,
+            300.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            341.0,
+            400.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.1,
+            276.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            304.0,
+            304.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 10,
+      "time": 2148.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            316.8,
+            276.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            341.0,
+            400.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.1,
+            276.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            304.0,
+            304.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            347.0,
+            313.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 11,
+      "time": 2184.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            316.8,
+            276.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            341.0,
+            400.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            315.1,
+            276.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.5,
+            326.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            347.0,
+            313.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 12,
+      "time": 2232.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            311.6,
+            384.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            303.7,
+            248.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            341.0,
+            400.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            298.2,
+            250.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.5,
+            326.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            347.0,
+            313.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            320.5,
+            284.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 13,
+      "time": 2268.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            289.5,
+            362.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            303.7,
+            248.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            369.9,
+            412.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            298.2,
+            250.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.5,
+            326.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            347.0,
+            313.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            320.5,
+            284.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            319.5,
+            392.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 14,
+      "time": 2304.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            289.5,
+            362.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            303.7,
+            248.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            369.9,
+            412.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            298.2,
+            250.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.5,
+            326.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            347.0,
+            313.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.8,
+            308.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            319.5,
+            392.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            325.2,
+            279.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 15,
+      "time": 2340.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            289.5,
+            362.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            303.7,
+            248.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            369.9,
+            412.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            298.2,
+            250.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.5,
+            326.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            347.0,
+            313.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.8,
+            308.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            319.5,
+            392.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            325.2,
+            279.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.0,
+            224.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 16,
+      "time": 2376.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            289.5,
+            362.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            280.8,
+            227.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            369.9,
+            412.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.9,
+            235.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.5,
+            326.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            347.0,
+            313.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.8,
+            308.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            319.5,
+            392.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            338.3,
+            307.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.0,
+            224.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            316.3,
+            260.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 3,
+      "shot_num": 17,
+      "time": 2400.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            349.5,
+            356.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.9,
+            346.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            289.5,
+            362.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            280.8,
+            227.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            369.9,
+            412.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.9,
+            235.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.5,
+            326.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            347.0,
+            313.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.8,
+            308.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            319.5,
+            392.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            338.3,
+            307.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.0,
+            224.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            316.3,
+            260.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            298.1,
+            564.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 1,
+      "time": 2430.0,
+      "camera": 7,
+      "stones": []
+    },
+    {
+      "end_num": 4,
+      "shot_num": 2,
+      "time": 2454.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            388.5,
+            316.5
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 3,
+      "time": 2490.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            377.6,
+            287.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            393.1,
+            328.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 4,
+      "time": 2526.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            377.6,
+            287.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            410.8,
+            354.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            389.8,
+            324.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 5,
+      "time": 2562.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            377.6,
+            287.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            410.8,
+            354.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.2,
+            345.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 6,
+      "time": 2598.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            377.6,
+            287.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            407.3,
+            385.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            413.4,
+            376.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 7,
+      "time": 2634.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            346.4,
+            286.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            407.3,
+            385.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            413.4,
+            376.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 8,
+      "time": 2670.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            346.4,
+            286.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            407.3,
+            385.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            413.4,
+            376.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 9,
+      "time": 2706.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            346.4,
+            286.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            407.3,
+            385.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            413.4,
+            376.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 10,
+      "time": 2748.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            346.4,
+            286.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            407.3,
+            385.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            413.4,
+            376.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 11,
+      "time": 2790.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            346.4,
+            286.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            407.3,
+            385.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            413.4,
+            376.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 12,
+      "time": 2826.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            346.4,
+            286.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            407.3,
+            385.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            413.4,
+            376.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 13,
+      "time": 2862.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            346.4,
+            286.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            407.3,
+            385.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            413.4,
+            376.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 14,
+      "time": 2898.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            346.4,
+            286.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            423.4,
+            358.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            431.1,
+            351.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            406.1,
+            387.5
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 15,
+      "time": 2934.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            315.3,
+            288.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            423.4,
+            358.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            431.1,
+            351.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            406.1,
+            387.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            352.7,
+            285.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 16,
+      "time": 2970.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            315.3,
+            288.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            423.4,
+            358.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            431.1,
+            351.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            406.1,
+            387.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            337.5,
+            258.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            355.7,
+            291.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 4,
+      "shot_num": 17,
+      "time": 3010.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            315.3,
+            288.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            423.4,
+            358.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            431.1,
+            351.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            379.6,
+            314.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            412.1,
+            343.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            385.8,
+            287.6
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            406.1,
+            387.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            337.5,
+            258.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            355.7,
+            291.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 1,
+      "time": 3024.0,
+      "camera": 1,
+      "stones": []
+    },
+    {
+      "end_num": 5,
+      "shot_num": 2,
+      "time": 3036.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 3,
+      "time": 3072.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 4,
+      "time": 3108.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.9,
+            297.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            313.3,
+            301.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 5,
+      "time": 3156.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.9,
+            297.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.6,
+            318.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            327.6,
+            291.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 6,
+      "time": 3192.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.9,
+            297.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.5,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            327.6,
+            291.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 7,
+      "time": 3228.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.0,
+            320.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.5,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            327.6,
+            291.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            264.4,
+            292.5
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 8,
+      "time": 3276.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.0,
+            320.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.5,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            313.8,
+            319.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            264.4,
+            292.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            330.5,
+            285.3
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 9,
+      "time": 3312.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.0,
+            320.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.5,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            313.8,
+            319.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            330.5,
+            285.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            271.4,
+            287.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 10,
+      "time": 3348.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            276.3,
+            348.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            270.5,
+            345.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            332.0,
+            344.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            330.5,
+            285.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            271.4,
+            287.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 11,
+      "time": 3384.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            250.2,
+            365.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            240.5,
+            353.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            332.0,
+            344.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            330.5,
+            285.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            271.4,
+            287.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.4,
+            339.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 12,
+      "time": 3420.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            250.2,
+            365.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            240.5,
+            353.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            332.0,
+            344.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            330.5,
+            285.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            271.4,
+            287.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            297.9,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            290.4,
+            339.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.8,
+            311.6
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 13,
+      "time": 3456.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            250.2,
+            365.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            240.5,
+            353.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            332.0,
+            344.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            330.5,
+            285.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            271.4,
+            287.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            297.9,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            361.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            284.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            307.0,
+            321.9
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 14,
+      "time": 3492.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            250.2,
+            365.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            240.5,
+            353.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            332.0,
+            344.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            309.4,
+            262.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            271.4,
+            287.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            297.9,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            361.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            284.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            307.0,
+            321.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            336.1,
+            291.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 15,
+      "time": 3528.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            250.2,
+            365.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            240.5,
+            353.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            332.0,
+            344.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            282.7,
+            327.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            309.4,
+            262.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.5,
+            298.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            297.9,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            361.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            284.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            307.0,
+            321.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            336.1,
+            291.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            260.3,
+            282.9
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 16,
+      "time": 3564.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            250.2,
+            365.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            240.5,
+            353.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            317.1,
+            317.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            282.7,
+            327.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            309.4,
+            262.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.5,
+            298.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            297.9,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            361.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            284.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            307.0,
+            321.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            336.1,
+            291.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            260.3,
+            282.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            332.6,
+            345.6
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 5,
+      "shot_num": 17,
+      "time": 3604.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            189.2,
+            415.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            250.2,
+            365.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            240.5,
+            353.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            317.1,
+            317.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            282.7,
+            327.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            239.5,
+            311.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            309.4,
+            262.3
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.5,
+            298.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            297.9,
+            268.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            361.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            284.7,
+            284.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            307.0,
+            321.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            336.1,
+            291.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            260.3,
+            282.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            332.6,
+            345.6
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 1,
+      "time": 3618.0,
+      "camera": 7,
+      "stones": []
+    },
+    {
+      "end_num": 6,
+      "shot_num": 2,
+      "time": 3642.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 3,
+      "time": 3678.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 4,
+      "time": 3714.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            328.8,
+            287.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            298.1,
+            300.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 5,
+      "time": 3750.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            328.8,
+            287.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            328.3,
+            292.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            284.2,
+            304.5
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 6,
+      "time": 3786.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            299.8,
+            276.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            297.1,
+            291.5
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            284.2,
+            304.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.8,
+            293.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 7,
+      "time": 3822.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            299.5,
+            245.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.8,
+            293.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 8,
+      "time": 3870.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            299.5,
+            245.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.8,
+            293.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.8,
+            282.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            289.6,
+            307.1
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 9,
+      "time": 3906.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            299.5,
+            245.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.8,
+            293.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            325.8,
+            282.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 10,
+      "time": 3942.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            299.5,
+            245.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            371.2,
+            280.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            314.7,
+            253.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            331.9,
+            298.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 11,
+      "time": 3978.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            299.5,
+            245.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            371.2,
+            280.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            314.7,
+            253.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            331.9,
+            298.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            353.3,
+            319.9
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 12,
+      "time": 4014.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            272.9,
+            229.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            371.2,
+            280.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            343.0,
+            240.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            331.9,
+            298.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            353.3,
+            319.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            313.4,
+            253.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 13,
+      "time": 4050.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            272.9,
+            229.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            371.2,
+            280.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            343.0,
+            240.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            331.9,
+            298.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            353.3,
+            319.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            313.4,
+            253.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 14,
+      "time": 4086.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            272.9,
+            229.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            371.2,
+            280.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            343.0,
+            240.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            331.9,
+            298.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            353.3,
+            319.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            313.4,
+            253.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 15,
+      "time": 4122.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            272.9,
+            229.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            371.2,
+            280.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            343.0,
+            240.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            331.9,
+            298.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            353.3,
+            319.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            313.4,
+            253.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            203.7,
+            351.5
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 16,
+      "time": 4158.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            272.9,
+            229.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            371.2,
+            280.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            343.0,
+            240.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            331.9,
+            298.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            353.3,
+            319.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            313.4,
+            253.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            203.7,
+            351.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            230.7,
+            264.3
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 6,
+      "shot_num": 17,
+      "time": 4198.0,
+      "camera": 7,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            238.9,
+            291.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            272.9,
+            229.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            287.0,
+            262.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            254.2,
+            313.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            371.2,
+            280.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            343.0,
+            240.1
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            263.8,
+            324.7
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            331.9,
+            298.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            353.3,
+            319.9
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            313.4,
+            253.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            268.8,
+            300.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            300.0,
+            300.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            203.7,
+            351.5
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            230.7,
+            264.3
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 1,
+      "time": 4212.0,
+      "camera": 1,
+      "stones": []
+    },
+    {
+      "end_num": 7,
+      "shot_num": 2,
+      "time": 4236.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 3,
+      "time": 4278.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 4,
+      "time": 4320.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.4,
+            267.6
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 5,
+      "time": 4356.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            292.0,
+            244.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.2,
+            274.3
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 6,
+      "time": 4392.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            292.0,
+            244.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            317.9,
+            269.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 7,
+      "time": 4428.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            271.2,
+            220.8
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.5,
+            288.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            307.0,
+            260.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 8,
+      "time": 4464.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.5,
+            288.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            307.0,
+            260.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 9,
+      "time": 4500.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.5,
+            288.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            301.0,
+            275.7
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 10,
+      "time": 4548.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.5,
+            288.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            279.4,
+            298.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.8,
+            263.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 11,
+      "time": 4584.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            342.5,
+            288.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            279.4,
+            298.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.8,
+            263.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            398.1,
+            325.0
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 12,
+      "time": 4620.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            373.0,
+            295.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            279.4,
+            298.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.8,
+            263.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            398.1,
+            325.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            337.0,
+            287.2
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 13,
+      "time": 4656.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            373.0,
+            295.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            279.4,
+            298.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.8,
+            263.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            425.8,
+            339.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            337.0,
+            287.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            383.4,
+            317.4
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 14,
+      "time": 4704.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            373.0,
+            295.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            279.4,
+            298.2
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.8,
+            263.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            425.8,
+            339.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            337.0,
+            287.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            383.4,
+            317.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            261.6,
+            334.9
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 15,
+      "time": 4728.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            284.3,
+            348.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            373.0,
+            295.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            291.5,
+            327.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.8,
+            263.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            425.8,
+            339.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            337.0,
+            287.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            383.4,
+            317.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            261.6,
+            334.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            276.3,
+            290.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 16,
+      "time": 4764.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            303.6,
+            324.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            373.0,
+            295.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            291.5,
+            327.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.8,
+            263.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            425.8,
+            339.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            337.0,
+            287.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            383.4,
+            317.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            261.6,
+            334.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            276.3,
+            290.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            276.4,
+            358.8
+          ]
+        }
+      ]
+    },
+    {
+      "end_num": 7,
+      "shot_num": 17,
+      "time": 4804.0,
+      "camera": 1,
+      "stones": [
+        {
+          "color": "green",
+          "position": [
+            303.6,
+            324.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            299.6,
+            207.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            320.0,
+            305.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            373.0,
+            295.1
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            318.6,
+            231.7
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            259.8,
+            226.0
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            291.5,
+            327.0
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            312.8,
+            263.4
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            425.8,
+            339.3
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            337.0,
+            287.2
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            383.4,
+            317.4
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            261.6,
+            334.9
+          ]
+        },
+        {
+          "color": "yellow",
+          "position": [
+            276.3,
+            290.8
+          ]
+        },
+        {
+          "color": "green",
+          "position": [
+            276.4,
+            358.8
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -115,7 +115,8 @@ def post_parse_lookback_and_fix(parsed_frames, double_gap_threshold=100.0):
         
     return fixed_frames
 
-def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_num = 1, yolo_tolerance=2.5):
+def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_num=1, yolo_tolerance=2.5, game_id="game_sheet1", save_individual_frames=False):
+
     # Setup input and output directories for JSON
     json_in = Path(input_dir) / "json" #input folder must contain just the frames of the two cameras for that specific sheet for that game, any json combining must come post parsing
     json_out = Path(output_dir) / "json"
@@ -337,24 +338,43 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
               f"with {total_game_frames} total frames. Expected 8 ends ({expected_total_frames} frames). "
               f"This discrepancy may be due to an extra end resulting from a tie or missing frame data.")
     
-    # Copy qualified JSON to the target output directory 
+# --- BUILD SINGLE COLLAPSED GAME JSON ---
+    game_data = {
+        "gameID": game_id,
+        "frames": []
+    }
+
     for pf in parsed_frames:
         filename = pf.get("source_filename")
-        dst_json = json_out / f"{filename}.json"
-        src_json = json_in / f"{filename}.json"
+        src_json = json_in / f"{filename}.json" if filename else None
 
-        if src_json.exists():
-            # Load original raw data for real frames and add calculated fields
+        if src_json and src_json.exists():
             with open(src_json, "r") as jf_in:
                 j_data = json.load(jf_in)
             j_data["end_num"] = pf.get("end_num")
             j_data["shot_num"] = pf.get("shot_num")
-            j_data["source_filename"] = filename
         else:
-            # Synthetic frames do not exist in raw input; use the modified pf dictionary directly
             j_data = pf
 
-        with open(dst_json, "w") as jf_out:
-            json.dump(j_data, jf_out, indent=2)
+        # Construct clean frame object (stripping source_filename, keeping time and camera)
+        clean_frame = {
+            "end_num": j_data.get("end_num"),
+            "shot_num": j_data.get("shot_num"),
+            "time": j_data.get("time"),
+            "camera": j_data.get("camera"),
+            "stones": j_data.get("stones", [])
+        }
+        game_data["frames"].append(clean_frame)
 
-    print(f"Parsed files successfully copied to '{output_dir}/'.")
+        # Optional: Save individual frames if requested for testing
+        if save_individual_frames and filename:
+            dst_json = json_out / f"{filename}.json"
+            with open(dst_json, "w") as jf_out:
+                json.dump(j_data, jf_out, indent=2)
+
+    # Save the single collapsed game JSON file
+    game_output_path = json_out / f"{game_id}.json"
+    with open(game_output_path, "w") as f_out:
+        json.dump(game_data, f_out, indent=2)
+
+    print(f"Collapsed game JSON successfully saved to '{game_output_path}'.")

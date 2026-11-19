@@ -77,7 +77,7 @@ def post_parse_lookback_and_fix(parsed_frames, double_gap_threshold=100.0):
                     for t_synth in [t1, t2]:
                         synth_frame = prev_frame.copy()
                         synth_frame["time"] = t_synth
-                        synth_frame["shot_num"] = len(rebuilt_end_frames) + 1
+                        synth_frame["shot_num"] = len(rebuilt_end_frames)
                         synth_frame["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}"
                         rebuilt_end_frames.append(synth_frame)
                 
@@ -90,11 +90,11 @@ def post_parse_lookback_and_fix(parsed_frames, double_gap_threshold=100.0):
                     t_synth = prev_frame["time"] + (time_delta / 2.0)
                     synth_frame = prev_frame.copy()
                     synth_frame["time"] = t_synth
-                    synth_frame["shot_num"] = len(rebuilt_end_frames) + 1
+                    synth_frame["shot_num"] = len(rebuilt_end_frames)
                     synth_frame["source_filename"] = f"{prev_frame.get('source_filename', 'frame')}_synth_{len(rebuilt_end_frames) + 1}"
                     rebuilt_end_frames.append(synth_frame)
 
-            current_frame["shot_num"] = len(rebuilt_end_frames) + 1
+            current_frame["shot_num"] = len(rebuilt_end_frames)
             rebuilt_end_frames.append(current_frame)
 
         # --- TRAILING PASS: Catch last-stone(s) hogged where no subsequent frame exists ---
@@ -103,7 +103,7 @@ def post_parse_lookback_and_fix(parsed_frames, double_gap_threshold=100.0):
             synth_time = last_frame["time"] + 40.0
             synth_frame = last_frame.copy()
             synth_frame["time"] = synth_time
-            synth_frame["shot_num"] = len(rebuilt_end_frames) + 1
+            synth_frame["shot_num"] = len(rebuilt_end_frames)
             synth_frame["source_filename"] = f"{last_frame.get('source_filename', 'frame')}_synth_trailing_{len(rebuilt_end_frames) + 1}"
             print(f"[LOOKBACK FIX] End {end_num}: Injecting trailing synthetic frame at {synth_time:.1f}s (Last Stone Hogged case).")
             rebuilt_end_frames.append(synth_frame)
@@ -355,6 +355,9 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
             j_data["shot_num"] = pf.get("shot_num")
         else:
             j_data = pf
+
+        if j_data.get("shot_num") == 0: #remove first empty frame for UI team
+            continue
 
         # Construct clean frame object (stripping source_filename, keeping time and camera)
         clean_frame = {

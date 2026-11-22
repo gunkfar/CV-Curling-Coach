@@ -2,12 +2,15 @@ import os
 import json
 import math
 import random
+import urllib.error
+import urllib.request
 from pathlib import Path
 from PIL import Image, ImageDraw
 
 
 # This file generates some fake data and image generation for parsing testing. To use move into cv/ (same location as parse_stones.py), copy parse_stones.py into section 2, then run.
 # Look at raw_curling_data/ and parsed_curling_data/ to compare images and JSONs
+GAME_ID = "1969-7-20-1800-A"
 
 
 # ==========================================
@@ -161,6 +164,8 @@ class CurlingSimulation:
                         "time": round(tick, 1),
                         "stones": stones_in_frame
                     }
+                    if frame_id == 0:
+                        frame_data["gameID"] = GAME_ID
 
                     self._save_frame(frame_id, frame_data)
                     frame_id += 1
@@ -258,7 +263,15 @@ def run_pipeline():
     sim.run_simulation()
 
     print("\n--- Step 2: Parsing Frames with parse_stones logic ---")
-    parse_curling_frames(input_dir=input_base, output_dir=output_base, sheet_num=1, yolo_tolerance=2.5)
+    parse_curling_frames(
+        input_dir=input_base,
+        output_dir=output_base,
+        sheet_num=1,
+        yolo_tolerance=2.5,
+        game_id=GAME_ID,
+        save_individual_frames=True,
+        send_to_api=True,
+    )
 
     print("\n--- Step 3: Organizing Output Images ---")
     output_images_dir = Path(output_base) / "images"
@@ -269,6 +282,8 @@ def run_pipeline():
 
     copied_count = 0
     for json_file in parsed_json_dir.glob("*.json"):
+        if json_file.stem == GAME_ID:
+            continue
         stem = json_file.stem
         if "_synth_" in stem:
             base_stem = stem.split("_synth_")[0]

@@ -1,5 +1,8 @@
 import json
 import math
+import os
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 SHEET_CAMERA_MAP = {
@@ -10,6 +13,70 @@ SHEET_CAMERA_MAP = {
     5: (5, 11),
     6: (6, 12),
 }
+
+STORAGE_API_BASE_URL = "https://rockcreekcurling.com/api/coach/storage"
+
+
+def _load_dotenv_if_present(dotenv_path=".env"):
+    env_file = Path(dotenv_path)
+    if not env_file.exists():
+        return
+
+    with open(env_file, "r", encoding="utf-8") as f:
+        for raw_line in f:
+            line = raw_line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            if line.startswith("export "):
+                line = line[len("export "):].strip()
+            key, value = line.split("=", 1)
+            key = key.strip()
+            value = value.strip()
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
+                value = value[1:-1]
+            if key and key not in os.environ:
+                os.environ[key] = value
+
+
+def send_game_json_to_api(game_id, payload, dotenv_path=".env"):
+    _load_dotenv_if_present(dotenv_path)
+    api_key = os.environ.get("COACH_API_KEY", "").strip()
+    if not api_key:
+        print("[API WARNING] COACH_API_KEY is not set in environment or .env; skipping API upload.")
+        return None
+
+    url = f"{STORAGE_API_BASE_URL}/{game_id}"
+    body_bytes = json.dumps(payload).encode("utf-8")
+
+    request = urllib.request.Request(
+        url=url,
+        data=body_bytes,
+        method="PUT",
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        },
+    )
+
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            status_code = response.getcode()
+            response_text = response.read().decode("utf-8", errors="replace")
+            print(f"[API SUCCESS] Uploaded game '{game_id}' (HTTP {status_code}).")
+            try:
+                return json.loads(response_text)
+            except json.JSONDecodeError:
+                return response_text
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8", errors="replace")
+        print(f"[API ERROR] HTTP {e.code} uploading game '{game_id}': {error_body}")
+        return None
+    except urllib.error.URLError as e:
+        print(f"[API ERROR] Network error uploading game '{game_id}': {e.reason}")
+        return None
+
 
 def post_parse_lookback_and_fix(parsed_frames, double_gap_threshold=100.0):
     if not parsed_frames:
@@ -115,7 +182,7 @@ def post_parse_lookback_and_fix(parsed_frames, double_gap_threshold=100.0):
         
     return fixed_frames
 
-def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_num=1, yolo_tolerance=2.5, game_id="game_sheet1", save_individual_frames=False):
+def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_num=1, yolo_tolerance=2.5, game_id="game_sheet1", save_individual_frames=False, send_to_api=False):
 
     # Setup input and output directories for JSON
     json_in = Path(input_dir) / "json" #input folder must contain just the frames of the two cameras for that specific sheet for that game, any json combining must come post parsing
@@ -126,7 +193,18 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
     print(f"Parsing frames and detecting ends from '{input_dir}'...")
 
     # Load all sorted frame JSON files from the input directory
-    json_files = list(json_in.glob("*.json"))
+    json_files = sorted(json_in.glob("*.json"), key=lambda p: p.name)
+    resolved_game_id = game_id
+    if json_files:
+        try:
+            with open(json_files[0], "r") as first_f:
+                first_entry_data = json.load(first_f)
+            if isinstance(first_entry_data, dict) and first_entry_data.get("gameID"):
+                resolved_game_id = str(first_entry_data["gameID"])
+        except Exception as e:
+            print(f"[API WARNING] Could not read gameID from '{json_files[0].name}': {e}. Falling back to '{game_id}'.")
+
+
     frames = []
     for jf in json_files:
         with open(jf, "r") as f:
@@ -340,7 +418,7 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
     
 # --- BUILD SINGLE COLLAPSED GAME JSON ---
     game_data = {
-        "gameID": game_id,
+        "gameID": resolved_game_id,
         "frames": []
     }
 
@@ -381,3 +459,6 @@ def parse_curling_frames(input_dir="raw_data", output_dir="parsed_data", sheet_n
         json.dump(game_data, f_out, indent=2)
 
     print(f"Collapsed game JSON successfully saved to '{game_output_path}'.")
+
+    if send_to_api:
+        send_game_json_to_api(resolved_game_id, game_data)

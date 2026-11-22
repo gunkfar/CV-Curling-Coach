@@ -2,7 +2,7 @@
 
 Selects the images for a curling game from the league bucket and loads them into OpenCV.
 
-Given a time, the pipeline asks Rock Creek's draw API which games were in progress, finds each game's two cameras, and lists every image from those cameras during the game. The result is a **manifest**: the game's info plus the names of its images, grouped by camera.
+Given a time, the pipeline asks Rock Creek's draw API which games were in progress, finds each game's two cameras, and lists every image from those cameras during the game. The result is a **manifest**: the game's ID and info plus the names of its images, grouped by camera.
 
 The pipeline only selects images. It never copies, changes, or deletes them.
 
@@ -37,12 +37,13 @@ python cv/pipeline/build_manifests.py 2026-10-26T18:00
 python cv/pipeline/build_manifests.py 2026-10-26T20:15
 ```
 
-A time without an offset is treated as Denver time. Manifests are saved to `cv/pipeline/manifests/` (test output; don't commit).
+A time without an offset is treated as Denver time. Manifests are saved to `cv/pipeline/manifests/`, one file per game named by its gameId (e.g. 2026-10-26-1830-A.json). (test output; don't commit).
 
 ## What a manifest looks like
 
 ```json
 {
+  "gameId": "2026-10-26-1830-A",
   "league": "Monday Open",
   "sheet": "A",
   "team1": "Unicones",
@@ -53,10 +54,12 @@ A time without an offset is treated as Denver time. Manifests are saved to `cv/p
   "window_end": "2026-10-26T21:15:00-06:00",
   "images": {
     "camera7": ["camera7_20261026_182741.jpg", "..."],
-    "camera1": ["camera1_20261026_182803.jpg", "..."]
+    "camera1": ["camera1_20261026_182432.jpg", "..."]
   }
 }
 ```
+
+gameId matches the database's format: date, scheduled start (24-hour Denver time), and sheet. It comes from the draw API's scheduled start, so it stays the same no matter which query time found the game or when the first image was captured. Copy it into any results so they can be matched back to the game.
 
 The glass-end camera (7-12) is listed first, since games usually start at that end.
 
@@ -72,9 +75,10 @@ sys.path.append("cv/pipeline")
 
 from frame_loader import make_s3_client, load_image
 
-with open("cv/pipeline/manifests/2026-10-26_monday-open_sheetA.json") as f:
+with open("cv/pipeline/manifests/2026-10-26-1830-A.json") as f:
     manifest = json.load(f)
 
+game_id = manifest["gameId"]  # attach this to your results
 s3 = make_s3_client()  # create once, reuse for every image
 
 for camera, keys in manifest["images"].items():

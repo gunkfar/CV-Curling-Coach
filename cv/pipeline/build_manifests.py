@@ -37,6 +37,16 @@ SHEET_TO_CAMERAS = {
 BUFFER_BEFORE = timedelta(minutes=10)
 BUFFER_AFTER = timedelta(minutes=30)
 
+def make_game_id(game):
+    """
+    Build the shared game ID, e.g. '2026-10-26-1830-A':
+    date, scheduled start (24-hour Denver time), and sheet.
+
+    Uses the API's scheduled start rather than any image time, so the
+    ID stays the same no matter when recording began.
+    """
+    return f"{game['start']:%Y-%m-%d-%H%M}-{game['sheet']}"
+
 
 def build_manifest(s3_client, game):
     """
@@ -57,6 +67,7 @@ def build_manifest(s3_client, game):
 
     # Datetimes can't be saved to JSON directly, so store them as ISO text
     return {
+        "gameId": make_game_id(game),
         "league": game["league"],
         "sheet": game["sheet"],
         "team1": game["team1"],
@@ -70,10 +81,8 @@ def build_manifest(s3_client, game):
 
 
 def manifest_filename(manifest):
-    """e.g. 2026-10-26_monday-open_sheetA.json"""
-    date = manifest["scheduled_start"][:10]                 # '2026-10-26'
-    league = manifest["league"].lower().replace(" ", "-")   # 'monday-open'
-    return f"{date}_{league}_sheet{manifest['sheet']}.json"
+    """e.g. 2026-10-26-1830-A.json"""
+    return f"{manifest['gameId']}.json"
 
 
 if __name__ == "__main__":

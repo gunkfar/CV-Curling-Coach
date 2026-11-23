@@ -3,3 +3,4 @@ curling_samples/
 __pycache__/
 *.pyc
 downloaded_images/
+.DS_Store

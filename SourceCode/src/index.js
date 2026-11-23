@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session'); // To set the session object. To store or access session data, use the `req.session`, which is (generally) serialized as JSON by the store.
 const bcrypt = require('bcryptjs'); //  To hash passwords
 const axios = require('axios');
+const fs = require('fs');
 
 // <!-- Section 2 : Connect to DB -->
 
@@ -86,40 +87,6 @@ app.get('/landing', (req, res) => {
   res.render('pages/landing', {
     username: req.session.username,
   }); 
-});
-
-app.get('/game', async (req, res) => {
-  const gameId = req.query.gameId;
-
-  try {
-    const response = await axios.get(
-      `https://rockcreekcurling.com/api/coach/storage/${gameId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`
-        }
-      }
-    );
-
-    const gameData = response.data;
-
-    res.render('pages/game', {
-      gameId,
-      gameData
-    });
-
-  } catch (error) {
-    if (error.response?.status === 404) {
-      // Game has not been processed yet
-      return res.render('pages/game', {
-        gameId,
-        gameData: null
-      });
-    }
-
-    console.error('Storage API error:', error.message);
-    res.status(502).send('Unable to retrieve game data.');
-  }
 });
 
 ///// login get and post /////
@@ -317,10 +284,41 @@ app.get('/home', async(req, res) => {
   });
 });
 
-//game //
-app.get('/game', (req, res) => {
+app.get('/game', async (req, res) => {
   const gameId = req.query.gameId;
-  res.render('pages/game', {gameID});
+  try {
+    const response = await axios.get(
+      `https://rockcreekcurling.com/api/coach/storage/${gameId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.API_KEY}`
+        }
+      }
+    );
+
+    const gameData = response.data; 
+
+    //const file = path.join(__dirname, 'exampleGame.json'); //testing
+    // const gameData = JSON.parse(fs.readFileSync(file, 'utf8')); //testing
+    const gameDataJson = JSON.stringify(gameData).replace(/</g, '\\u003c');   //security, stops script sequent inside from breaking out of script tags
+    res.render('pages/game', {
+      gameId,
+      gameData,
+      gameDataJson
+    });
+
+  } catch (error) {
+    if (error.response?.status === 404) {
+      console.log('404 branch hit');
+      return res.render('pages/game', {
+        gameId,
+        gameData: null,
+        gameDataJson: 'null'
+      }); 
+    }
+    console.error('Storage API error:', error.message);
+    res.status(502).send('Unable to retrieve game data. No catch');
+  }
 });
 
 app.put('/game', async(req, res) => {

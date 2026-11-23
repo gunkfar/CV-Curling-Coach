@@ -12,7 +12,7 @@
 
 <body>
       <p>Game ID: {{gameId}}</p>
-      {{#if gameData}}
+      {{#if gameDataJson}}
       <p>Game data found!</p>
       {{else}}
       <p>Game has not been processed yet.</p>
@@ -44,7 +44,7 @@
 
     </div>
   </div>
-
+  <script id="gameDataJson" type="application/json">{{{gameDataJson}}}</script>
   <script>
    const gameId = "{{gameId}}";
    document.getElementById('save').addEventListener('click', async () => {
@@ -67,7 +67,7 @@
    //Code to display the house
    //Testing stones 0 is red, 1 is yellow
    //shot number reset for every end
-   const shots = [
+   {{!-- const shots = [
    {shot_num: 0, end: 1, color: 0, x: 10,  y: -8},
    {shot_num: 1, end: 1, color: 1, x: -40, y: 25},
    {shot_num: 2, end: 1, color: 0, x: 70,  y: 60},
@@ -78,52 +78,69 @@
    {shot_num: 1, end: 2, color: 1, x: -40, y: 25},
    {shot_num: 2, end: 2, color: 0, x: 70,  y: 60},
    {shot_num: 3, end: 2, color: 1, x: -95, y: -50},
-   ];
+   ]; --}}
+   {{!-- ratio of stone to house radi is .079 --}}
 
-   function house(stones = [], cur = null){
-      let s = `<svg class="house" viewBox="-210 -210 420 420" role="img"
+   const TOTAL_ENDS = 8;
+   const CENTER = { x: 300, y: 300 };   // once JSON format changes it will be {x: 0, y: 0}
+   const SCALE  = 180 / 219.5; //180 / radius of house in pixels
+   const STONE_COLORS = { green: '#b3261e', yellow: '#e0a800' };
+   function house(stones = []){
+      //-210, -210 is top left corner, the cordinate system is essential upsdei down from normal quadrants 
+      // hog line should be 6.4 m from t -> 629.5px
+      let s = `<svg class="house" viewBox="-210 -210 420 860" role="img" 
             aria-label="Curling house" xmlns="http://www.w3.org/2000/svg">
-            <rect x="-210" y="-210" width="420" height="420" fill="#f6f9f9"/>
+            <rect x="-210" y="-210" width="420" height="860" fill="#f6f9f9"/>
             <circle r="180" fill="#2c653e"/>
             <circle r="120" fill="#f1ecda"/>
             <circle r="60"  fill="#2c653e"/>
             <circle r="15"  fill="#afa380" stroke="#142f0a" stroke-width="1"/>
             <line x1="-210" y1="0" x2="210" y2="0" stroke="#142f0a" stroke-opacity=".55"/>
-            <line x1="0" y1="-210" x2="0" y2="210" stroke="#142f0a" stroke-opacity=".55"/>
-            <line x1="-210" y1="-185" x2="210" y2="-185" stroke="#142f0a" stroke-opacity=".35"/>`;
+            <line x1="0" y1="-210" x2="0" y2="629.5" stroke="#142f0a" stroke-opacity=".55"/>
+            <line x1="-210" y1="629.5" x2="210" y2="629.5" stroke="#142f0a" stroke-opacity=".35"/>`;
       
 
       stones.forEach(o => {
-         if (o.out) return;
          s += `<g transform="translate(${o.x} ${o.y})">
-            <circle r="10" fill="#9a9ea3" stroke="#222" stroke-width="1.2"/>
-            <circle r="6" fill="${o.color ? '#e0a800' : '#b3261e'}" stroke="#222" stroke-width=".8"/>
+            <circle r="14.27" fill="#9a9ea3" stroke="#222" stroke-width="1.2"/>
+            <circle r="10.27" fill="${STONE_COLORS[o.color] || '#888'}" stroke="#222" stroke-width=".8"/>
          </g>`;
       });
 
-      if (cur && !cur.out) {
-         s += `<circle cx="${cur.x}" cy="${cur.y}" r="16" fill="none"
-                  stroke="#142f0a" stroke-width="3" stroke-dasharray="5 3"/>`;
-      }
       return s + '</svg>';
    }
 
-      const TOTAL_ENDS = 8;
-      const MAX_STONES = 16;
-      const ends = Array.from({ length: TOTAL_ENDS }, () => []);  // ends[0] = stones in end 1
-      
-      shots.forEach(shot => { //add each shot to its end
-         ends[shot.end - 1].push(shot);
-      });
-
+      let ends = [];  // ends[0] = stones in end 1
       let currentEnd = 0;
       let shown = 0; 
 
-      function render() {
-         const stones = ends[currentEnd].slice(0, shown);
-         const cur = stones[stones.length - 1] || null;
+      function toStones(jsonStones){
+         return jsonStones.map(st => ({
+            color: st.color,
+            x: (st.position[0]) * SCALE,
+            y: (st.position[1]) * SCALE
+         }));
+      }
 
-         document.getElementById('house').innerHTML = house(stones, cur);
+      function toEnds(data) {
+         const maxEnd = Math.max(-1, ...data.frames.map(f => f.end_num)); //build array for every frame's end_num ... turns into seperate arguments
+         ends = Array.from({ length: Math.max(TOTAL_ENDS, maxEnd + 1) }, () => []); //creates n seperate arrays for each end
+
+         data.frames.forEach(frame => {
+            ends[frame.end_num].push(frame); //each frame goes into bucket matching its end
+         });
+         ends.forEach(e => e.sort((a, b) => a.shot_num - b.shot_num)); //catch if API doesnt return frames in order
+
+         currentEnd = 0; //must resent the viewer to end 1 with empty house
+         shown = 0;
+      }
+      
+
+      function render() {
+         const frame = shown > 0 ? ends[currentEnd][shown - 1]: null; 
+         const stones = frame ? toStones(frame.stones) : []; //converts to SVG stones 
+
+         document.getElementById('house').innerHTML = house(stones);
 
          // end buttons
          document.getElementById('ends').innerHTML = ends.map((e, i) =>
@@ -180,18 +197,39 @@
          shown = 0;
          render();
       });
-      async function loadGame() {
-         show('loadingScreen');
-         try {
-            show('game');
-            render();
-         } catch (error){
-            console.error('Error loading game:', error);
-         }
-      }
 
-      render();
-      //loadGame() instead of render once API calling;
+      const LOAD_TIMEOUT_MS = 5000;
+
+function failAndLeave() {
+   show('loading');
+   document.querySelector('.loadingScreen');
+   setTimeout(() => {
+      if (window.history.length > 1) window.history.back();
+      else window.location.href = '/';
+   }, LOAD_TIMEOUT_MS);
+}
+
+function init() {
+   let data = null;
+   try {
+      data = JSON.parse(document.getElementById('gameDataJson').textContent);
+   } catch (err) {
+      console.error('Bad game data', err);
+   }
+
+
+   if (!data || !Array.isArray(data.frames) || data.frames.length === 0) {
+      failAndLeave();
+      return;
+   }
+
+   toEnds(data);
+   render();
+   show('ready');
+}
+
+init();
+
   </script>
 </body>
 </html>

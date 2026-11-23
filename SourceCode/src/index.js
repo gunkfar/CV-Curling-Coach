@@ -48,6 +48,274 @@ app.use(
   })
 );
 
+// <!-- Section 4 : API Routes -->
+
+///// testing ////
+
+app.get('/', (req, res) => {
+    res.redirect('/landing');
+});
+
+///// landing page //////
+app.get('/landing', (req, res) => {
+  res.render('pages/landing', {
+    username: req.session.username,
+  }); 
+});
+
+///// login get and post /////
+app.get('/login', (req, res) => {
+  res.render('pages/login',
+  {
+   username: req.session.username,
+   last_name: req.session.last_name,
+   first_name: req.session.first_name,
+  });
+});
+
+app.post('/login', async (req, res) => {
+  const user1 = {
+    uname: 'JaneDoe',
+    fname: 'Jane',
+    lname: 'Doe',
+    pwd: 'test123',
+  }
+
+  const user2 = {
+    uname: 'JohnDoe',
+    fname: 'John',
+    lname: 'Doe',
+    pwd: 'test456',
+  }
+
+
+  const userarr = [user1, user2];
+
+  for (let i = 0; i < userarr.length; i++) {
+    const hash = await bcrypt.hash(userarr[i].pwd, 10);
+    const query = `INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4) ON CONFLICT (username) DO NOTHING;`; 
+    await db.none(query, [userarr[i].fname, userarr[i].lname, userarr[i].uname, hash]).then(courses => { 
+    })
+    .catch(err => {
+      res.status(400);
+  });
+  }
+
+  const username = req.body.username;
+  const query = 'SELECT * FROM users WHERE username = $1 LIMIT 1';
+
+  db.one(query, [username])
+    .then(async user => {
+      if (!user) {
+        return res.render('pages/register', {
+        });
+      }
+      const match = await bcrypt.compare(req.body.password, user.password);
+      if (!match) {
+        return res.render('pages/login', {
+          message: 'Incorrect password',
+          error: true
+        });
+      }
+      req.session.last_name = user.last_name,
+      req.session.first_name = user.first_name,
+      req.session.username = user.username;
+
+      user.initials = (user.first_name[0] + user.last_name[0]).toUpperCase();
+      req.session.user = user;
+      req.session.save();
+
+      res.redirect('/home');
+    })
+    .catch(err => {
+      res.render('pages/register', {
+      });
+    });
+});
+
+///// register get and post /////
+app.get('/register', (req, res) => {
+  res.render('pages/register');
+});
+
+app.post('/register', async (req, res) => {
+  try {
+    const { first_name, last_name, username, password } = req.body;
+
+    const hash = await bcrypt.hash(password, 10);
+
+    const query = `INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4) ON CONFLICT (username) DO NOTHING RETURNING user_id, username, first_name, last_name;`;
+    const user = await db.oneOrNone(query, [first_name, last_name, username, hash]);
+
+    // username  exists
+    if (!user) {
+      return res.status(409).render('pages/register', {
+        error: 'That username is already taken.'
+      });
+    }
+
+    // login session
+    req.session.user = {
+      user_id: user.user_id,
+      username: user.username,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      initials: (user.first_name[0] + user.last_name[0]).toUpperCase()
+    };
+
+    // wait for the session to save before redirecting
+    req.session.save((err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Unable to start your session.');
+      }
+      res.redirect('/home');
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).render('pages/register', {
+      error: 'Unable to create your account. Please try again.'
+    });
+  }
+});
+
+///// Authentication Middleware /////
+const auth = (req, res, next) => {
+  if (!req.session.user) {
+    // Default to login page.
+    return res.redirect('/login');
+  }
+  next();
+};
+
+///// logout /////
+app.get('/logout', async (req, res) => {
+  req.session.destroy();
+  res.redirect('/landing');
+});
+
+// Authentication Required
+app.use(auth);
+
+app.get('/gamesOnDate', async (req, res) => {
+  const selectedDate = req.query.date; // date that is queried from calendar click 
+
+  try {
+    const gamesat6 = await axios.get(
+      'https://rockcreekcurling.com/api/draw/leagues-at',
+      {
+        params: {
+          t: `${selectedDate}T18:00:00` // 6:00 pm
+        }
+      }
+    );
+
+    const gamesat815 = await axios.get(
+      'https://rockcreekcurling.com/api/draw/leagues-at',
+      {
+        params: {
+          t: `${selectedDate}T20:15:00`// 8:15 pm
+        }
+      }
+    );
+
+    const leagues6 = gamesat6.data.leagues.map(league => ({
+      ...league,
+      games: league.games.map(game => ({
+        ...game,
+        game_id: `${selectedDate}-1800-${game.sheet}`
+      }))
+    }));
+
+    const leagues815 = gamesat815.data.leagues.map(league => ({
+      ...league,
+      games: league.games.map(game => ({
+        ...game,
+        game_id: `${selectedDate}-2015-${game.sheet}`
+      }))
+    }));
+
+    res.render('pages/gamesOnDate', {
+      selectedDate,
+      leagues6,
+      leagues815
+    });
+
+  } catch (error) {
+    console.error('Error fetching curling games:', error.message);
+    res.status(500).send('Error loading games');
+  }
+});
+
+// home //
+app.get('/home', async(req, res) => {
+
+  res.render('pages/home', {
+    username: req.session.username,
+    last_name: req.session.last_name,
+    first_name: req.session.first_name,
+  });
+});
+
+app.get('/game', async (req, res) => {
+  const gameId = req.query.gameId;
+  try {
+    const response = await axios.get(
+      `https://rockcreekcurling.com/api/coach/storage/${gameId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.API_KEY}`
+        }
+      }
+    );
+
+    const gameData = response.data; 
+
+    //const file = path.join(__dirname, 'exampleGame.json'); //testing
+    // const gameData = JSON.parse(fs.readFileSync(file, 'utf8')); //testing
+    const gameDataJson = JSON.stringify(gameData).replace(/</g, '\\u003c');   //security, stops script sequent inside from breaking out of script tags
+    res.render('pages/game', {
+      gameId,
+      gameData,
+      gameDataJson
+    });
+
+  } catch (error) {
+    if (error.response?.status === 404) {
+      console.log('404 branch hit');
+      return res.render('pages/game', {
+        gameId,
+        gameData: null,
+        gameDataJson: 'null'
+      }); 
+    }
+    console.error('Storage API error:', error.message);
+    res.status(502).send('Unable to retrieve game data. No catch');
+  }
+});
+
+app.put('/game', async(req, res) => {
+  try {
+    const gameId = req.query.gameId;
+    const userId = req.session.user.user_id;
+    const query = `UPDATE users 
+                   SET saved_games = array_append(saved_games, $1)
+                   WHERE user_id = $2
+                   AND NOT ($1::text = ANY(COALESCE(saved_games, '{}')));`; 
+    const result = await db.query(query, [gameId, userId]);
+    res.json({success: true, alreadySaved: result.rowCount === 0});
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({error: 'Cannot save game. Please try again'});
+  }
+});
+
+// });
+
+
+// start server
+
 app.use('/', pageRoutes);
 app.use('/', authRoutes);
 app.use('/', gameRoutes);

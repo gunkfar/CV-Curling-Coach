@@ -1,18 +1,15 @@
-// <!-- Section 1 : Import Dependencies -->
+// <!-- Import Dependencies -->
 const path = require('path');
-const express = require('express'); // To build an application server or API
+const express = require('express');
 const app = express();
 app.use('/resources', express.static(path.join(__dirname, 'resources')));
 const handlebars = require('express-handlebars');
-const Handlebars = require('handlebars');
-const pgp = require('pg-promise')(); // To connect to the Postgres DB from the node server
 const bodyParser = require('body-parser');
 const session = require('express-session'); // To set the session object. To store or access session data, use the `req.session`, which is (generally) serialized as JSON by the store.
-const bcrypt = require('bcryptjs'); //  To hash passwords
-const axios = require('axios');
-const fs = require('fs');
 
-// <!-- Section 2 : Connect to DB -->
+const pageRoutes = require('./routes/pageRoutes');
+const authRoutes = require('./routes/authRoutes');
+const gameRoutes = require('./routes/gameRoutes');
 
 // create `ExpressHandlebars` instance and configure the layouts and partials dir.
 const hbs = handlebars.create({
@@ -24,30 +21,7 @@ const hbs = handlebars.create({
   }
 });
 
-// database configuration
-const dbConfig = {
-  host: process.env.POSTGRES_HOST, // the database server
-  //host: 'db', // the database server
-  
-  port: process.env.POSTGRES_PORT, // the database port
-  database: process.env.POSTGRES_DB, // the database name
-  user: process.env.POSTGRES_USER, // the user account to connect with
-  password: process.env.POSTGRES_PASSWORD, // the password of the user account
-};
-
-const db = pgp(dbConfig);
-
-// test your database
-db.connect()
-  .then(obj => {
-    console.log('Database connection successful'); // you can view this message in the docker compose logs
-    obj.done(); // success, release the connection;
-  })
-  .catch(error => {
-    console.log('ERROR:', error.message || error);
-  });
-
-// <!-- Section 3 : App Settings -->
+// <!-- App Settings -->
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -342,6 +316,12 @@ app.put('/game', async(req, res) => {
 
 // start server
 
+app.use('/', pageRoutes);
+app.use('/', authRoutes);
+app.use('/', gameRoutes);
+
+// <!--Start Server-->
+// starting the server and keeping the connection open to listen for more requests
 const port = 3000;
 module.exports = app.listen(3000);
 console.log(`test test testServer is listening on port ${port}`);

@@ -513,7 +513,8 @@
 .loadingImage {
   width: 150px;
   max-width: 50%;         
-  height: auto;           
+  height: auto;  }
+          
 .game-card {
   display: block;
   width: 100%;
